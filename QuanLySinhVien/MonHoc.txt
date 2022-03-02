@@ -1,0 +1,10 @@
+﻿Toan-Roi-Rac 20
+NMLT 30
+KTLT 30
+CTDL&GT 30
+Giai-Tich 24
+CTRR 12
+TH-CTRR 6
+HDT 24
+Xac-Xuat-Thong-Ke 20
+Co-Hoc-Luong-Tu 24

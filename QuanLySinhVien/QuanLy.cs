@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace Day01_QuanLySinhVien
 {
-
+    
     public class QuanLy : Controler
     {
         //==================================================================
@@ -15,8 +17,10 @@ namespace Day01_QuanLySinhVien
         ~QuanLy() { }
         //==================================================================
         //Properties
+        
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
+        
         //==================================================================
         //Method
         //----------------------------------------------------------
@@ -24,7 +28,7 @@ namespace Day01_QuanLySinhVien
         /// Import data from file
         /// </summary>
         /// <param name="list"></param>
-        
+
         //Đọc file sinh viên
         public void ReadFile_SV(string fname)
         {

@@ -51,6 +51,10 @@ namespace Day01_QuanLySinhVien
                     case 7:
                         dssv.CheckPassedMH();
                         break;
+                    case 8:
+                        QuanLySinhVien.DataBase test = new QuanLySinhVien.DataBase();
+                        test.testDB();
+                        break;
                     default:
                         Console.WriteLine("EXIT!");
                         break;

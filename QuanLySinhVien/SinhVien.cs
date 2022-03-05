@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Day01_QuanLySinhVien
+namespace QuanLySinhVien
 {
     /// <summary>
     /// Class for SinhVien

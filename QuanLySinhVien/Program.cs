@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Day01_QuanLySinhVien
+namespace QuanLySinhVien
 {
     class Program
     {
@@ -52,8 +52,9 @@ namespace Day01_QuanLySinhVien
                         dssv.CheckPassedMH();
                         break;
                     case 8:
-                        QuanLySinhVien.DataBase test = new QuanLySinhVien.DataBase();
-                        test.testDB();
+                        DataBase test = new DataBase();
+                        test.ExtractDB(ref dssv.list_SV, ref dssv.list_MH);
+                        dssv.AutoImportScoreSV();
                         break;
                     default:
                         Console.WriteLine("EXIT!");

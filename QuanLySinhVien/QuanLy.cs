@@ -6,7 +6,7 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace Day01_QuanLySinhVien
+namespace QuanLySinhVien
 {
     
     public class QuanLy : Controler

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Day01_QuanLySinhVien
+namespace QuanLySinhVien
 {
     /// <summary>
     /// Class of MonHoc

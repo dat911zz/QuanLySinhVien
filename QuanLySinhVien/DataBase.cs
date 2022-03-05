@@ -31,11 +31,91 @@ namespace QuanLySinhVien
             string password = "1234";
             return GetDBConnection(datasource, database, username, password);
         }
-        //Chạy thử
-        
-        public List<QuanLySinhVien.> ExtractDB()
+
+
+        public void extractDSSVTable(string query, ref List<SinhVien> list)
         {
-            string sql = "SELECT * FROM dssv";
+            cmd.CommandText = query;
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                int i = 0;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string mssv = reader.GetString(0);
+                        string tensv = reader.GetString(1);
+                        string gioitinh = reader.GetString(2);
+                        DateTime ngaysinh = reader.GetDateTime(3);
+                        string lop = reader.GetString(4);
+                        string khoa = reader.GetString(5);
+                        Console.Write("{0,-5}", ++i);
+                        Console.WriteLine(" {0}, {1}, {2}, {3}, {4}, {5}", mssv, tensv, gioitinh, ngaysinh.ToShortDateString(), lop, khoa);
+
+                        SinhVien sv = new SinhVien();
+                        sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
+                        list.Add(sv);
+                    }
+                }
+            }
+        }
+
+        public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
+        {
+            cmd.CommandText = query;
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                int i = 0;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        List<MonHoc> tmp = new List<MonHoc>(list_mh.ToArray());
+                        //-------------INPUT DATA----------------
+                        //SinhVien x = new SinhVien();
+                        for (int mh_i = 0; mh_i < reader.FieldCount; mh_i++)
+                        {
+                            if (reader.GetInt32(mh_i) == 1)
+                            {
+                                //========Deep copy========= 
+                                var c = tmp[mh_i].Clone();
+                                list_sv[i].MonHocDK.Add((MonHoc)c);
+                            }
+                        }
+                        i++;
+                    }     
+                }
+            }
+        }
+        //
+        public void extractMonHocTable(string query, ref List<MonHoc> list)
+        {
+            cmd.CommandText = query;
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                int i = 0;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string monhoc = reader.GetString(0);
+                        int sotiet = reader.GetInt32(1);
+                        Console.Write("{0,-5}", ++i);
+                        Console.WriteLine(" {0}, {1}", monhoc, sotiet);
+
+                        MonHoc mh = new MonHoc();
+                        mh.setMH(monhoc, sotiet);
+                        list.Add(mh);
+                    }
+                }
+            }
+        }
+        //Chạy thử
+        public void ExtractDB(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
+        {
+            string query1 = "SELECT * FROM dssv";
+            string query2 = "SELECT * FROM MonHoc";
+            string query3 = "SELECT * FROM dkhp";
 
             Console.WriteLine("Getting Connection ...");
             SqlConnection conn = GetDBConnection();
@@ -44,36 +124,18 @@ namespace QuanLySinhVien
             {
                 Console.WriteLine("Openning Connection ...");
                 conn.Open();
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Connection successful!");
+                Console.ResetColor();
                 cmd.Connection = conn;
-                cmd.CommandText = sql;
                 //
-                using (DbDataReader reader = cmd.ExecuteReader())
-                {
-                    int i = 0;
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string mssv = reader.GetString(0);
-                            string tensv = reader.GetString(1);
-                            string gioitinh = reader.GetString(2);
-                            DateTime ngaysinh = reader.GetDateTime(3);
-                            string lop = reader.GetString(4);
-                            int khoa = reader.GetInt32(5);
-                            Console.Write("{0,-5}", ++i);
-                            Console.WriteLine(" {0}, {1}, {2}, {3}, {4}, {5}", mssv, tensv, gioitinh, ngaysinh.ToShortDateString(), lop, khoa);
-
-                            
-
-                        }
-                    }
-                }
+                extractDSSVTable(query1, ref list_sv);
+                extractMonHocTable(query2, ref list_mh);
+                extractDKHPTable(query3, ref list_sv, ref list_mh);
             }
             catch (Exception e)
             {
-
                 Console.WriteLine("Error: " + e.Message);
             }
             Console.Read();

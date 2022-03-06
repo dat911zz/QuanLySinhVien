@@ -32,7 +32,7 @@ namespace QuanLySinhVien
             return GetDBConnection(datasource, database, username, password);
         }
 
-
+        //Lấy thông tin từ bảng DSSV
         public void extractDSSVTable(string query, ref List<SinhVien> list)
         {
             cmd.CommandText = query;
@@ -49,8 +49,8 @@ namespace QuanLySinhVien
                         DateTime ngaysinh = reader.GetDateTime(3);
                         string lop = reader.GetString(4);
                         string khoa = reader.GetString(5);
-                        Console.Write("{0,-5}", ++i);
-                        Console.WriteLine(" {0}, {1}, {2}, {3}, {4}, {5}", mssv, tensv, gioitinh, ngaysinh.ToShortDateString(), lop, khoa);
+                        //Console.Write("{0,-5}", ++i);
+                        //Console.WriteLine(" {0}, {1}, {2}, {3}, {4}, {5}", mssv, tensv, gioitinh, ngaysinh.ToShortDateString(), lop, khoa);
 
                         SinhVien sv = new SinhVien();
                         sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
@@ -59,7 +59,7 @@ namespace QuanLySinhVien
                 }
             }
         }
-
+        //Lấy thông tin từ bảng DKHP
         public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             cmd.CommandText = query;
@@ -72,7 +72,6 @@ namespace QuanLySinhVien
                     {
                         List<MonHoc> tmp = new List<MonHoc>(list_mh.ToArray());
                         //-------------INPUT DATA----------------
-                        //SinhVien x = new SinhVien();
                         for (int mh_i = 0; mh_i < reader.FieldCount; mh_i++)
                         {
                             if (reader.GetInt32(mh_i) == 1)
@@ -87,7 +86,7 @@ namespace QuanLySinhVien
                 }
             }
         }
-        //
+        //Lấy thông tin từ bảng MonHoc
         public void extractMonHocTable(string query, ref List<MonHoc> list)
         {
             cmd.CommandText = query;
@@ -100,8 +99,8 @@ namespace QuanLySinhVien
                     {
                         string monhoc = reader.GetString(0);
                         int sotiet = reader.GetInt32(1);
-                        Console.Write("{0,-5}", ++i);
-                        Console.WriteLine(" {0}, {1}", monhoc, sotiet);
+                        //Console.Write("{0,-5}", ++i);
+                        //Console.WriteLine(" {0}, {1}", monhoc, sotiet);
 
                         MonHoc mh = new MonHoc();
                         mh.setMH(monhoc, sotiet);
@@ -110,7 +109,7 @@ namespace QuanLySinhVien
                 }
             }
         }
-        //Chạy thử
+        //Lấy toàn bộ thông tin từ CSDL
         public void ExtractDB(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             string query1 = "SELECT * FROM dssv";
@@ -129,10 +128,11 @@ namespace QuanLySinhVien
                 Console.WriteLine("Connection successful!");
                 Console.ResetColor();
                 cmd.Connection = conn;
-                //
+                //-------------------------------------
                 extractDSSVTable(query1, ref list_sv);
                 extractMonHocTable(query2, ref list_mh);
                 extractDKHPTable(query3, ref list_sv, ref list_mh);
+                //-------------------------------------
             }
             catch (Exception e)
             {

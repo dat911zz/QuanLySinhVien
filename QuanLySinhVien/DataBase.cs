@@ -49,10 +49,8 @@ namespace QuanLySinhVien
                         DateTime ngaysinh = reader.GetDateTime(3);
                         string lop = reader.GetString(4);
                         string khoa = reader.GetString(5);
-                        //Console.Write("{0,-5}", ++i);
-                        //Console.WriteLine(" {0}, {1}, {2}, {3}, {4}, {5}", mssv, tensv, gioitinh, ngaysinh.ToShortDateString(), lop, khoa);
-
                         SinhVien sv = new SinhVien();
+
                         sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
                         list.Add(sv);
                     }
@@ -92,16 +90,12 @@ namespace QuanLySinhVien
             cmd.CommandText = query;
             using (DbDataReader reader = cmd.ExecuteReader())
             {
-                int i = 0;
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
                         string monhoc = reader.GetString(0);
                         int sotiet = reader.GetInt32(1);
-                        //Console.Write("{0,-5}", ++i);
-                        //Console.WriteLine(" {0}, {1}", monhoc, sotiet);
-
                         MonHoc mh = new MonHoc();
                         mh.setMH(monhoc, sotiet);
                         list.Add(mh);

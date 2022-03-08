@@ -133,7 +133,6 @@ namespace QuanLySinhVien
                 Console.WriteLine("Error: " + e.Message);
             }
             Console.Read();
-        }
-        
+        }      
     }
 }

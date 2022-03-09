@@ -26,7 +26,7 @@ namespace QuanLySinhVien
         public static SqlConnection GetDBConnection()
         {
             string tmp;
-            Console.Write("\nNhap ten DataBase: ");
+            Console.Write("\nNhap Server Name: ");
             tmp = Console.ReadLine().ToString();
 
             string datasource = $@"{tmp}";

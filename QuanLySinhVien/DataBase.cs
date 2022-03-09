@@ -25,7 +25,11 @@ namespace QuanLySinhVien
         //Test kết nối với mẫu chuỗi kết nối
         public static SqlConnection GetDBConnection()
         {
-            string datasource = @"DESKTOP-GUE0JS7";
+            string tmp;
+            Console.Write("\nNhap ten DataBase: ");
+            tmp = Console.ReadLine().ToString();
+
+            string datasource = $@"{tmp}";
             string database = "SinhVien";
             string username = "test01";
             string password = "1234";
@@ -130,7 +134,10 @@ namespace QuanLySinhVien
             }
             catch (Exception e)
             {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Error: " + e.Message);
+                Console.ResetColor();
             }
             Console.Read();
         }      

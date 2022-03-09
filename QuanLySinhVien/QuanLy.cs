@@ -121,7 +121,7 @@ namespace QuanLySinhVien
             catch (IOException e)
             {
                 Console.Write(e.Message);
-                Console.BackgroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\n\t_[Doc file khong thanh cong!]_\t");
                 Console.ResetColor();
                 return;

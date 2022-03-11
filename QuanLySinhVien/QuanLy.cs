@@ -26,7 +26,7 @@ namespace QuanLySinhVien
         /// <summary>
         /// Using Constructor Injection
         /// </summary>
-        /// <param name="database"></param>
+        /// <param name="database">Inject module DB into QuanLy</param>
         public QuanLy(IDataBase database)
         {
             this.database = database;

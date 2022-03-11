@@ -6,6 +6,7 @@ using System.IO;
 namespace QuanLySinhVien
 {
     /// <summary>
+    /// *Update: 
     /// Using Dependency Injection for DataBase
     /// </summary>
     class Program
@@ -26,7 +27,7 @@ namespace QuanLySinhVien
                 switch (chon)
                 {
                     case 1:
-                        dssv.database.ExtractDB(ref dssv.list_SV, ref dssv.list_MH);
+                        dssv.GetDataBase();
                         dssv.AutoImportScoreSV();
                         break;
                     case 2:

@@ -188,9 +188,18 @@ namespace QuanLySinhVien
         }
         //----------------------------------------------------------
         /// <summary>
+        /// Import data from Database
+        /// </summary>
+        public void GetDataBase()
+        {
+            database.ExtractDB(ref list_SV, ref list_MH);
+        }
+
+        //----------------------------------------------------------
+        /// <summary>
         /// Functions
         /// </summary>
-        
+
         //Hiện danh sách sinh viên
         public void showListSV()
         {

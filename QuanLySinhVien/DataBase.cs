@@ -21,7 +21,7 @@ namespace QuanLySinhVien
     /// </summary>
     public class SQLDataBase : IDataBase
     {
-        //---log : DESKTOP-GUE0JS7
+        //---log test server name : DESKTOP-GUE0JS7
         SqlCommand cmd = new SqlCommand();
         //Khởi tạo kết nối tới CSDL
         public SqlConnection GetDBConnection(string datasource, string database, string username, string password)
@@ -54,7 +54,6 @@ namespace QuanLySinhVien
             cmd.CommandText = query;
             using (DbDataReader reader = cmd.ExecuteReader())
             {
-                int i = 0;
                 if (reader.HasRows)
                 {
                     while (reader.Read())

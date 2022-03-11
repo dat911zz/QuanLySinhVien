@@ -7,11 +7,24 @@ using System.Data.Common;
 
 namespace QuanLySinhVien
 {
-    public class DataBase
+    /// <summary>
+    /// Database Interface for using another type of database in future
+    /// </summary>
+    public interface IDataBase
     {
+        public SqlConnection GetDBConnection(string datasource, string database, string username, string password);
+        public SqlConnection GetDBConnection();
+        void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
+    }
+    /// <summary>
+    /// Interacting with SQL Databse 
+    /// </summary>
+    public class SQLDataBase : IDataBase
+    {
+        //---log : DESKTOP-GUE0JS7
         SqlCommand cmd = new SqlCommand();
         //Khởi tạo kết nối tới CSDL
-        public static SqlConnection GetDBConnection(string datasource, string database, string username, string password)
+        public SqlConnection GetDBConnection(string datasource, string database, string username, string password)
         {
             //
             // Data Source=<Server-Name>;Initial Catalog=<table>;Persist Security Info=True;User ID=<username>;Password=<password>
@@ -23,7 +36,7 @@ namespace QuanLySinhVien
             
         }
         //Test kết nối với mẫu chuỗi kết nối
-        public static SqlConnection GetDBConnection()
+        public SqlConnection GetDBConnection()
         {
             string tmp;
             Console.Write("\nNhap Server Name: ");
@@ -35,7 +48,6 @@ namespace QuanLySinhVien
             string password = "1234";
             return GetDBConnection(datasource, database, username, password);
         }
-
         //Lấy thông tin từ bảng DSSV
         public void extractDSSVTable(string query, ref List<SinhVien> list)
         {

@@ -8,8 +8,10 @@ using System.Linq;
 
 namespace QuanLySinhVien
 {
-    
-    public class QuanLy : Controler
+    /// <summary>
+    /// Class for Quan Ly Sinh Vien
+    /// </summary>
+    public class QuanLy : Viewer
     {
         //==================================================================
         //Contructor & Destructor
@@ -20,6 +22,15 @@ namespace QuanLySinhVien
         
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
+        public IDataBase database;
+        /// <summary>
+        /// Using Constructor Injection
+        /// </summary>
+        /// <param name="database"></param>
+        public QuanLy(IDataBase database)
+        {
+            this.database = database;
+        }
         
         //==================================================================
         //Method
@@ -361,7 +372,7 @@ namespace QuanLySinhVien
     /// <summary>
     /// Class phụ 
     /// </summary>
-    public class Controler
+    public class Viewer
     {
         public void DuongKe()
         {

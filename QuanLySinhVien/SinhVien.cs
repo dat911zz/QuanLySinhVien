@@ -8,7 +8,7 @@ namespace QuanLySinhVien
     /// <summary>
     /// Class for SinhVien
     /// </summary>
-    public class SinhVien : Controler
+    public class SinhVien : Viewer
     {
         //==================================================================
         //Contructor & Destructor

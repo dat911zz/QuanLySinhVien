@@ -5,11 +5,14 @@ using System.IO;
 
 namespace QuanLySinhVien
 {
+    /// <summary>
+    /// Using Dependency Injection for DataBase
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            QuanLy dssv = new QuanLy();
+            QuanLy dssv = new QuanLy(new SQLDataBase());
             int chon = 0;        
             do
             {
@@ -23,8 +26,7 @@ namespace QuanLySinhVien
                 switch (chon)
                 {
                     case 1:
-                        DataBase test = new DataBase();
-                        test.ExtractDB(ref dssv.list_SV, ref dssv.list_MH);
+                        dssv.database.ExtractDB(ref dssv.list_SV, ref dssv.list_MH);
                         dssv.AutoImportScoreSV();
                         break;
                     case 2:

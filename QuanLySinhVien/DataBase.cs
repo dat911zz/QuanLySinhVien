@@ -12,8 +12,6 @@ namespace QuanLySinhVien
     /// </summary>
     public interface IDataBase
     {
-        public SqlConnection GetDBConnection(string datasource, string database, string username, string password);
-        public SqlConnection GetDBConnection();
         void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
     }
     /// <summary>
@@ -152,5 +150,22 @@ namespace QuanLySinhVien
             }
             Console.Read();
         }      
+    }
+    public class XMLDataBase : IDataBase
+    {
+        public void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SqlConnection GetDBConnection(string datasource, string database, string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SqlConnection GetDBConnection()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

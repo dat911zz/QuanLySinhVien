@@ -27,6 +27,7 @@ namespace QuanLySinhVien
                 switch (chon)
                 {
                     case 1:
+                        dssv.testDIContainer();
                         dssv.GetDataBase();
                         dssv.AutoImportScoreSV();
                         break;

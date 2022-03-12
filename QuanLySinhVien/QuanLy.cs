@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
-using System.Data.SqlClient;
-using System.Linq;
-
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using Castle.MicroKernel.SubSystems.Configuration;
 namespace QuanLySinhVien
 {
     /// <summary>
@@ -23,6 +22,9 @@ namespace QuanLySinhVien
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
         public IDataBase database;
+
+        WindsorContainer container = new WindsorContainer();
+
         /// <summary>
         /// Using Constructor Injection
         /// </summary>
@@ -34,6 +36,14 @@ namespace QuanLySinhVien
         
         //==================================================================
         //Method
+        public void testDIContainer()
+        {
+            container.Register(Component.For<QuanLy>());
+            container.Register(Component.For<IDataBase>().ImplementedBy<SQLDataBase>());
+            container.Register(Component.For<IDataBase>().ImplementedBy<XMLDataBase>());
+            container.Register(Component.For<ITest>().ImplementedBy<Dependency1>());
+            container.Register(Component.For<ITest>().ImplementedBy<Dependency2>());
+        }
         //----------------------------------------------------------
         /// <summary>
         /// Import data from file
@@ -414,6 +424,24 @@ namespace QuanLySinhVien
             {
                 item.showInfoMH();
             }
+        }
+    }
+    public interface ITest
+    {
+        public void test();
+    }
+    public class Dependency1 : ITest
+    {
+        public void test()
+        {
+            Console.WriteLine("\nD1");
+        }
+    }
+    public class Dependency2 : ITest
+    {
+        public void test()
+        {
+            Console.WriteLine("\nD2");
         }
     }
 }

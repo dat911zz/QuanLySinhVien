@@ -33,7 +33,6 @@ namespace QuanLySinhVien
         {
             this.database = database;
         }
-        
         //==================================================================
         //Method
         public void testDIContainer()

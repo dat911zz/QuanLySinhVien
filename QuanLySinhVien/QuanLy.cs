@@ -35,6 +35,7 @@ namespace QuanLySinhVien
         }
         //==================================================================
         //Method
+        
         public void testDIContainer()
         {
             container.Register(Component.For<QuanLy>());
@@ -42,6 +43,7 @@ namespace QuanLySinhVien
             container.Register(Component.For<IDataBase>().ImplementedBy<XMLDataBase>());
             container.Register(Component.For<ITest>().ImplementedBy<Dependency1>());
             container.Register(Component.For<ITest>().ImplementedBy<Dependency2>());
+            
         }
         //----------------------------------------------------------
         /// <summary>

@@ -7,6 +7,19 @@ using Castle.Windsor;
 using Castle.MicroKernel.SubSystems.Configuration;
 namespace QuanLySinhVien
 {
+    public class ServiceInstaller : IWindsorInstaller
+    {
+        public void Install(Castle.Windsor.IWindsorContainer container,
+        Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
+        {
+            container.Register(
+                Component
+                    .For<IDataBase>()
+                    .ImplementedBy<SQLDataBase>()
+                    .LifestyleTransient());
+        }
+    }
+
     /// <summary>
     /// Class for Quan Ly Sinh Vien
     /// </summary>
@@ -18,7 +31,7 @@ namespace QuanLySinhVien
         ~QuanLy() { }
         //==================================================================
         //Properties
-        
+
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
         public IDataBase database;
@@ -35,15 +48,16 @@ namespace QuanLySinhVien
         }
         //==================================================================
         //Method
-        
+
         public void testDIContainer()
         {
             container.Register(Component.For<QuanLy>());
-            container.Register(Component.For<IDataBase>().ImplementedBy<SQLDataBase>());
-            container.Register(Component.For<IDataBase>().ImplementedBy<XMLDataBase>());
-            container.Register(Component.For<ITest>().ImplementedBy<Dependency1>());
-            container.Register(Component.For<ITest>().ImplementedBy<Dependency2>());
-            
+            container.Register(
+                Component.For<IDataBase>().ImplementedBy<SQLDataBase>(), 
+                Component.For<IDataBase>().ImplementedBy<XMLDataBase>(),
+                Component.For<ITest>().ImplementedBy<Dependency1>(),
+                Component.For<ITest>().ImplementedBy<Dependency2>()
+            );          
         }
         //----------------------------------------------------------
         /// <summary>
@@ -159,7 +173,7 @@ namespace QuanLySinhVien
                     //SinhVien x = new SinhVien();
                     for (int mh_i = 0; mh_i < data.Length; mh_i++)
                     {
-                        
+
 
                         if (data[mh_i].ToString() == "1")
                         {

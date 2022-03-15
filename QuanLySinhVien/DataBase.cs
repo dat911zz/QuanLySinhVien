@@ -151,6 +151,7 @@ namespace QuanLySinhVien
             Console.Read();
         }      
     }
+    //Class for XML Databse (for future)
     public class XMLDataBase : IDataBase
     {
         public void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH)

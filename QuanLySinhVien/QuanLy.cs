@@ -2,24 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using Castle.MicroKernel.SubSystems.Configuration;
 namespace QuanLySinhVien
 {
-    public class ServiceInstaller : IWindsorInstaller
-    {
-        public void Install(Castle.Windsor.IWindsorContainer container,
-        Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
-        {
-            container.Register(
-                Component
-                    .For<IDataBase>()
-                    .ImplementedBy<SQLDataBase>()
-                    .LifestyleTransient());
-        }
-    }
-
     /// <summary>
     /// Class for Quan Ly Sinh Vien
     /// </summary>
@@ -36,8 +20,6 @@ namespace QuanLySinhVien
         public List<MonHoc> list_MH = new List<MonHoc>();
         public IDataBase database;
 
-        WindsorContainer container = new WindsorContainer();
-
         /// <summary>
         /// Using Constructor Injection
         /// </summary>
@@ -49,16 +31,7 @@ namespace QuanLySinhVien
         //==================================================================
         //Method
 
-        public void testDIContainer()
-        {
-            container.Register(Component.For<QuanLy>());
-            container.Register(
-                Component.For<IDataBase>().ImplementedBy<SQLDataBase>(), 
-                Component.For<IDataBase>().ImplementedBy<XMLDataBase>(),
-                Component.For<ITest>().ImplementedBy<Dependency1>(),
-                Component.For<ITest>().ImplementedBy<Dependency2>()
-            );          
-        }
+        
         //----------------------------------------------------------
         /// <summary>
         /// Import data from file

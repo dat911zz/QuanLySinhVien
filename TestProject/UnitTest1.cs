@@ -23,8 +23,8 @@ namespace TestProject
         [Test]
         public void Test2()
         {
-            //Assert.Fail("You look so suck!");
-            Assert.Pass("Nice =))");
+            Assert.Fail("I will send you to Jesus!");
+            //Assert.Pass("Nice =))");
         }
     }
 }

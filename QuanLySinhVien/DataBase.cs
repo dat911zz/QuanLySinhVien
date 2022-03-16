@@ -12,6 +12,9 @@ namespace QuanLySinhVien
     /// </summary>
     public interface IDataBase
     {
+        public void extractDSSVTable(string query, ref List<SinhVien> list);
+        public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh);
+        public void extractMonHocTable(string query, ref List<MonHoc> list);
         void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
     }
     /// <summary>
@@ -156,17 +159,26 @@ namespace QuanLySinhVien
     {
         public void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH)
         {
-            throw new NotImplementedException();
+            Console.Write("\nStage 1");
+            
         }
 
-        public SqlConnection GetDBConnection(string datasource, string database, string username, string password)
+        public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
-            throw new NotImplementedException();
+            Console.Write("\nStage 2");
+            
         }
 
-        public SqlConnection GetDBConnection()
+        public void extractDSSVTable(string query, ref List<SinhVien> list)
         {
-            throw new NotImplementedException();
+            Console.Write("\nStage 3");
+            
         }
+
+        public void extractMonHocTable(string query, ref List<MonHoc> list)
+        {
+            Console.Write("\nStage 4");         
+        }
+
     }
 }

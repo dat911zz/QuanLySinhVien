@@ -1,19 +1,26 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+using Castle.Windsor;
 
 namespace QuanLySinhVien
 {
     /// <summary>
     /// *Update: 
-    /// Using Dependency Injection for DataBase
+    /// Using Dependency Injection Container for Database
     /// </summary>
     class Program
-    {
+    {       
         static void Main(string[] args)
         {
-            QuanLy dssv = new QuanLy(new SQLDataBase());
+            //Lúc chưa áp dụng DI container
+            //QuanLy dssv = new QuanLy(new SQLDataBase());
+
+            //==================================================
+            //Áp dụng DI container bằng Windsor Castle framework
+            WindsorContainer container = new WindsorContainer();
+            container.Install(new ServicesInstaller());
+            QuanLy dssv = container.Resolve<QuanLy>();
+            container.Dispose();
+            //==================================================
             int chon = 0;        
             do
             {
@@ -26,8 +33,7 @@ namespace QuanLySinhVien
                 Console.Clear();
                 switch (chon)
                 {
-                    case 1:
-                        dssv.testDIContainer();
+                    case 1:             
                         dssv.GetDataBase();
                         dssv.AutoImportScoreSV();
                         break;

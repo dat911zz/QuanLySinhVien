@@ -29,9 +29,7 @@ namespace QuanLySinhVien
             this.database = database;
         }
         //==================================================================
-        //Method
-
-        
+        //Method      
         //----------------------------------------------------------
         /// <summary>
         /// Import data from file
@@ -412,24 +410,6 @@ namespace QuanLySinhVien
             {
                 item.showInfoMH();
             }
-        }
-    }
-    public interface ITest
-    {
-        public void test();
-    }
-    public class Dependency1 : ITest
-    {
-        public void test()
-        {
-            Console.WriteLine("\nD1");
-        }
-    }
-    public class Dependency2 : ITest
-    {
-        public void test()
-        {
-            Console.WriteLine("\nD2");
         }
     }
 }

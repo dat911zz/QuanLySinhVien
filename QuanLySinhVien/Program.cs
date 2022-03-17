@@ -16,9 +16,14 @@ namespace QuanLySinhVien
 
             //==================================================
             //Áp dụng DI container bằng Windsor Castle framework
+
+            //Bắt đầu chương trình
             WindsorContainer container = new WindsorContainer();
+            //Thêm và cấu hình tất cả các thành phần bằng WindsorInstaller
             container.Install(new ServicesInstaller());
+            //Khởi tạo và cấu hình thành phần gốc và tất cả các phụ thuộc liên quan đến nó
             QuanLy dssv = container.Resolve<QuanLy>();
+            //Dọn dẹp
             container.Dispose();
             //==================================================
             int chon = 0;        

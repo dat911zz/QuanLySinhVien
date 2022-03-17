@@ -6,32 +6,28 @@ namespace QuanLySinhVien
 {
     public class ServicesInstaller : IWindsorInstaller
     {
+        /// <summary>
+        /// Hàm thiết lập tùy chỉnh để đăng ký các Components vào DI container
+        /// </summary>
         void IWindsorInstaller.Install(IWindsorContainer container, IConfigurationStore store)
         {
+            //QuanLy class registered
+            container.Register(
+                Component
+                    .For<QuanLy>()
+                    .LifestyleTransient());
+            //IDataBase implementation registered
             container.Register(
                 Component
                     .For<IDataBase>()
                     .ImplementedBy<SQLDataBase>()
                     .LifestyleTransient());
+            //IDataBase implementation registered
             container.Register(
                 Component
                     .For<IDataBase>()
-                    .ImplementedBy<XMLDataBase>()
-                    .LifestyleTransient());
-            container.Register(
-                Component
-                    .For<ITest>()
-                    .ImplementedBy<Dependency1>()
-                    .LifestyleTransient());
-            container.Register(
-                Component
-                    .For<ITest>()
-                    .ImplementedBy<Dependency2>()
-                    .LifestyleTransient());
-            container.Register(
-                Component
-                    .For<QuanLy>()
-                    .LifestyleTransient());
+                    .ImplementedBy<XMLDataBase>()//Để test
+                    .LifestyleTransient());          
         }       
     }
 }

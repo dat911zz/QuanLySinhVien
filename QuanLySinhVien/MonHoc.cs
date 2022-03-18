@@ -22,29 +22,29 @@ namespace QuanLySinhVien
         //==================================================================
         //Method
         //Lấy dữ liệu của môn học
-        public void setMH(string TenMH, int SoTiet)
+        public void setData(string TenMH, int SoTiet)
         {
             tenMH = TenMH;
             soTiet = SoTiet;
         }
         //Lấy điểm môn học (sinh viên)
-        public void setDiemMH(double DiemQT, double DiemTP)
+        public void setDiem(double DiemQT, double DiemTP)
         {
             diemQT = DiemQT;
             diemTP = DiemTP;
         }
         //Form thông tin môn học (quản lý)
-        public void showInfoMH()
+        public void showInfo()
         {
             Console.Write("\n{0,-21}\t{1,-5}",tenMH, soTiet);
         }
         //Form thông tin môn học sinh viên đã đăng ký (sinh viên)
-        public void showInfoMH_DK()
+        public void showInfo_DK()
         {
             Console.Write("\nTen mon: {0}\nSo tiet: {1}\n", tenMH, soTiet);
         }
         //Form thông tin môn học sinh viên đã đăng ký kèm điểm (sinh viên)
-        public void showInfoMH_SV()
+        public void showInfo_SV()
         {
             Console.Write("\t{0,-21}\t{1}\t\t{2}\t{3}\t{4}\t{5}",tenMH,soTiet,diemTP,diemQT,diemTongKet(), (isPass() == true ? "Dau" : "Rot"));
         }
@@ -59,7 +59,7 @@ namespace QuanLySinhVien
             return diemTongKet() >= 4;
         }
         //Nhập điểm môn học
-        public void inputScoreMH()
+        public void inputScore()
         {
             var tmp = 0.0;
         checkpoint1:

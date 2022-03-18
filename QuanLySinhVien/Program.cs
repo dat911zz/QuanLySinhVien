@@ -40,22 +40,22 @@ namespace QuanLySinhVien
                 {
                     case 1:             
                         dssv.GetDataBase();
-                        dssv.AutoImportScoreSV();
+                        dssv.AutoImportScore();
                         break;
                     case 2:
-                        dssv.showListSV();
+                        dssv.showList();
                         break;
                     case 3:                
-                        dssv.SearchInfoSV();
+                        dssv.SearchInfo();
                         break;
                     case 4:
-                        dssv.SearchListMHSV();
+                        dssv.SearchListMH();
                         break;
                     case 5:                       
-                        dssv.ShowListScoreSV();
+                        dssv.ShowListScore();
                         break;
                     case 6:
-                        dssv.ImportScoreSV();
+                        dssv.ImportScore();
                         break;
                     case 7:
                         dssv.CheckPassedMH();

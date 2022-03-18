@@ -76,7 +76,7 @@ namespace QuanLySinhVien
             return TenSV;
         }
         //Xuất thông tin sinh viên
-        public void getInfoSV()
+        public void getInfo()
         {
             Console.Write($"\nMSSV: {MaSV}\nHo ten: {TenSV}\nGioi tinh: {GioiTinh}\nNgay sinh: {NgaySinh.ToShortDateString()}\nLop: {Lop}\nKhoa: {Khoa}\n");
         }
@@ -90,7 +90,7 @@ namespace QuanLySinhVien
             Console.Write("\n-Dang Ky Mon Hoc-");
             foreach (var item in list_MH)
             {
-                item.showInfoMH_DK();
+                item.showInfo_DK();
                 Console.Write("\nDang ky? (Y/N): ");
                 pick = Console.ReadLine();
                 if (pick == "Y" || pick == "y")
@@ -122,7 +122,7 @@ namespace QuanLySinhVien
             return null;
         }
         //Nhập điểm cho sinh viên
-        public void inputScoreSV()
+        public void inputScore()
         {
             MonHoc x;
             string name, flag;
@@ -138,7 +138,7 @@ namespace QuanLySinhVien
                 goto retype;
             }
             Console.Write("\n\t-=Thong tin cua sinh vien=-");
-            x.inputScoreMH();
+            x.inputScore();
             Console.Write("\nBan co muon nhap diem mon khac (Y/N): ");
             flag = Console.ReadLine();
             if (flag == "Y" || flag == "y")

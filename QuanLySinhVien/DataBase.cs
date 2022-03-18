@@ -15,7 +15,7 @@ namespace QuanLySinhVien
         public void extractDSSVTable(string query, ref List<SinhVien> list);
         public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh);
         public void extractMonHocTable(string query, ref List<MonHoc> list);
-        void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
+        void Extract(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
     }
     /// <summary>
     /// Interacting with SQL Databse 
@@ -25,7 +25,7 @@ namespace QuanLySinhVien
         //---log test server name : DESKTOP-GUE0JS7
         SqlCommand cmd = new SqlCommand();
         //Khởi tạo kết nối tới CSDL
-        public SqlConnection GetDBConnection(string datasource, string database, string username, string password)
+        public SqlConnection GetConnection(string datasource, string database, string username, string password)
         {
             //
             // Data Source=<Server-Name>;Initial Catalog=<table>;Persist Security Info=True;User ID=<username>;Password=<password>
@@ -37,7 +37,7 @@ namespace QuanLySinhVien
             
         }
         //Test kết nối với mẫu chuỗi kết nối
-        public SqlConnection GetDBConnection()
+        public SqlConnection GetConnection()
         {
             string tmp;
             Console.Write("\nNhap Server Name: ");
@@ -47,7 +47,7 @@ namespace QuanLySinhVien
             string database = "SinhVien";
             string username = "test01";
             string password = "1234";
-            return GetDBConnection(datasource, database, username, password);
+            return GetConnection(datasource, database, username, password);
         }
         //Lấy thông tin từ bảng DSSV
         public void extractDSSVTable(string query, ref List<SinhVien> list)
@@ -113,21 +113,21 @@ namespace QuanLySinhVien
                         string monhoc = reader.GetString(0);
                         int sotiet = reader.GetInt32(1);
                         MonHoc mh = new MonHoc();
-                        mh.setMH(monhoc, sotiet);
+                        mh.setData(monhoc, sotiet);
                         list.Add(mh);
                     }
                 }
             }
         }
         //Lấy toàn bộ thông tin từ CSDL
-        public void ExtractDB(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
+        public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             string query1 = "SELECT * FROM dssv";
             string query2 = "SELECT * FROM MonHoc";
             string query3 = "SELECT * FROM dkhp";
 
             Console.WriteLine("Getting Connection ...");
-            SqlConnection conn = GetDBConnection();
+            SqlConnection conn = GetConnection();
             
             try
             {
@@ -157,7 +157,7 @@ namespace QuanLySinhVien
     //Class for XML Databse (for future)
     public class XMLDataBase : IDataBase
     {
-        public void ExtractDB(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH)
+        public void Extract(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH)
         {
             Console.Write("\nStage 1");
             

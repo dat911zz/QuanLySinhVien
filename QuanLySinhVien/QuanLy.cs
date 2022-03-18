@@ -55,7 +55,6 @@ namespace QuanLySinhVien
             }
             try
             {
-
                 for (int i = 0; i < line.Length; ++i)
                 {
                     SinhVien x = new SinhVien();

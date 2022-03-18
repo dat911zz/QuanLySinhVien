@@ -162,23 +162,19 @@ namespace QuanLySinhVien
             Console.Write("\nStage 1");
             
         }
-
         public void extractDKHPTable(string query, ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             Console.Write("\nStage 2");
             
         }
-
         public void extractDSSVTable(string query, ref List<SinhVien> list)
         {
             Console.Write("\nStage 3");
             
         }
-
         public void extractMonHocTable(string query, ref List<MonHoc> list)
         {
             Console.Write("\nStage 4");         
         }
-
     }
 }

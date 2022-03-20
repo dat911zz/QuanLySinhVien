@@ -372,7 +372,6 @@ namespace QuanLySinhVien
             return;
         }
     }
-
     /// <summary>
     /// Class phụ 
     /// </summary>

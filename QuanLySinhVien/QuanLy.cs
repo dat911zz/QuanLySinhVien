@@ -19,7 +19,6 @@ namespace QuanLySinhVien
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
         public IDataBase database;
-
         /// <summary>
         /// Using Constructor Injection
         /// </summary>

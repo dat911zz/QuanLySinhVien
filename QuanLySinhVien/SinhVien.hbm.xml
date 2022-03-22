@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
+   assembly = "QuanLySinhVien" namespace = "QuanLySinhVien">
+   <class name = "SinhVien"> 
+      <id name = "MaSV"></id> 		
+      <property name = "TenSV"/> 
+      <property name = "GioiTinh"/> 
+      <property name = "NgaySinh"/> 
+      <property name = "Lop"/> 
+      <property name = "Khoa"/> 
+   </class> 
+</hibernate-mapping>

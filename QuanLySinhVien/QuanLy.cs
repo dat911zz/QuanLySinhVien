@@ -148,7 +148,7 @@ namespace QuanLySinhVien
                         {
                             //========Deep copy========= 
                             var c = tmp[mh_i].Clone();
-                            list_SV[i].MonHocDK.Add((MonHoc)c);
+                            list_SV[i].mhdk().Add((MonHoc)c);
                         }
                     }
                     Thread.Sleep(50);
@@ -174,9 +174,9 @@ namespace QuanLySinhVien
 
             for (int i = 0; i < list_SV.Count; i++)
             {
-                for (int j = 0; j < list_SV[i].MonHocDK.Count; j++)
+                for (int j = 0; j < list_SV[i].mhdk().Count; j++)
                 {
-                    list_SV[i].MonHocDK[j].setDiem(score1.Next(1, 10), score2.Next(2, 10));
+                    list_SV[i].mhdk()[j].setDiem(score1.Next(1, 10), score2.Next(2, 10));
                 }
             }
         }
@@ -295,13 +295,13 @@ namespace QuanLySinhVien
             {
                 Console.Write($"\n\n\t\t\t   -Sinh vien: {list_SV[i].getTenSV()}-\n\n");
                 Khuon_MH_Full();
-                for (int j = 0; j < list_SV[i].MonHocDK.Count; j++)
+                for (int j = 0; j < list_SV[i].mhdk().Count; j++)
                 {
-                    if (list_SV[i].MonHocDK[j].isPass() == false)
+                    if (list_SV[i].mhdk()[j].isPass() == false)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
-                    list_SV[i].MonHocDK[j].showInfo_SV();
+                    list_SV[i].mhdk()[j].showInfo_SV();
                     Console.ResetColor();
                     Console.WriteLine();
                 }
@@ -351,13 +351,13 @@ namespace QuanLySinhVien
 
             Console.Write($"\n\n\t\t\t   -Sinh vien: {x.getTenSV()}-\n\n");
             Khuon_MH_Full();
-            for (int i = 0; i < x.MonHocDK.Count; i++)
+            for (int i = 0; i < x.mhdk().Count; i++)
             {
-                if (x.MonHocDK[i].isPass() == false)
+                if (x.mhdk()[i].isPass() == false)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
-                x.MonHocDK[i].showInfo_SV();
+                x.mhdk()[i].showInfo_SV();
                 Console.ResetColor();
                 Console.WriteLine();
             }
@@ -376,30 +376,30 @@ namespace QuanLySinhVien
     /// </summary>
     public class Viewer
     {
-        public void DuongKe()
+        public virtual void DuongKe()
         {
             for (int i = 0; i < 100; i++)
             {
                 Console.Write("-");
             }
         }
-        public void Khuon_SV()
+        public virtual void Khuon_SV()
         {
             Console.WriteLine("Ma SV\t\tTen SV\t\t   Gioi Tinh\tNgay Sinh\tLop\t\tKhoa");
             DuongKe();
         }
-        public void Khuon_MH()
+        public virtual void Khuon_MH()
         {
             Console.Write("Ten MH\t\t\tSo tiet\n");
             DuongKe();
         }
-        public void Khuon_MH_Full()
+        public virtual void Khuon_MH_Full()
         {
             Console.Write("\tTen MH\t\t\tSo tiet\t  Diem: TP\tQT\tTK\tKet qua\n");
             DuongKe();
             Console.WriteLine();
         }
-        public void showCurrentListMH(List<MonHoc> list_MH)
+        public virtual void showCurrentListMH(List<MonHoc> list_MH)
         {
             Console.WriteLine("\nDanh sach mon hoc hien co trong CSDL: \n");
             Khuon_MH();

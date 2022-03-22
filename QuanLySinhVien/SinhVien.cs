@@ -13,26 +13,40 @@ namespace QuanLySinhVien
         //==================================================================
         //Contructor & Destructor
         public SinhVien() { }
+        public SinhVien(string ma, string ten, string gioitinh, DateTime ngaysinh, string lop, string khoa)
+        {
+            this.MaSV = ma;
+            this.TenSV = ten;
+            this.GioiTinh = gioitinh;
+            this.NgaySinh = ngaysinh;
+            this.Lop = lop;
+            this.Khoa = khoa;
+        }
         ~ SinhVien() { }
         //==================================================================
         //Properties
-        private string MaSV { get; set; }
-        private string TenSV { get; set; }
-        private string GioiTinh { get; set; }
-        private DateTime NgaySinh  { get; set; }
-        private string Lop { get; set; }
-        private string Khoa { get; set; }
+        public virtual string MaSV { get; set; }
+        public virtual string TenSV { get; set; }
+        public virtual string GioiTinh { get; set; }
+        public virtual DateTime NgaySinh  { get; set; }
+        public virtual string Lop { get; set; }
+        public virtual string Khoa { get; set; }
 
-        public List<MonHoc> MonHocDK = new List<MonHoc>();  
+        protected List<MonHoc> MonHocDK = new List<MonHoc>();
         //==================================================================
         //Method
+        public virtual List<MonHoc> mhdk()
+        {
+            List<MonHoc> ds = MonHocDK;
+            return ds;
+        }
 
         /// <summary>
         /// Get info of SinhVien
         /// </summary>
-         
+
         //Nhập thông tin sinh viên (thủ công)
-        public void setData()
+        public virtual void setData()
         {
             Console.WriteLine("-Nhap thong tin cua sinh vien-");
             Console.Write("\nMa sinh vien: ");
@@ -61,7 +75,7 @@ namespace QuanLySinhVien
             Khoa = Convert.ToString(Console.ReadLine());
         }
         //Lấy thông tin sinh viên (random, readfile...)
-        public void setData(string maSV, string tenSV, string gioiTinh, DateTime ngaySinh, string lop, string khoa)
+        public virtual void setData(string maSV, string tenSV, string gioiTinh, DateTime ngaySinh, string lop, string khoa)
         {
             MaSV = maSV;
             TenSV = tenSV;
@@ -71,17 +85,17 @@ namespace QuanLySinhVien
             Khoa = khoa;
         }
         //Trả về tên sinh viên
-        public string getTenSV()
+        public virtual string getTenSV()
         {
             return TenSV;
         }
         //Xuất thông tin sinh viên
-        public void getInfo()
+        public virtual void getInfo()
         {
             Console.Write($"\nMSSV: {MaSV}\nHo ten: {TenSV}\nGioi tinh: {GioiTinh}\nNgay sinh: {NgaySinh.ToShortDateString()}\nLop: {Lop}\nKhoa: {Khoa}\n");
         }
         //Đăng ký môn học
-        public void dangKyMonHoc(List<MonHoc> list_MH)
+        public virtual void dangKyMonHoc(List<MonHoc> list_MH)
         {
             string pick;
             showCurrentListMH(list_MH);
@@ -102,7 +116,7 @@ namespace QuanLySinhVien
 
         }
         //Xuất danh sách môn học sinh viên đã đăng ký
-        public void showMonHocDaDK()
+        public virtual void showMonHocDaDK()
         {
             Console.Write("\n\t---Cac mon hoc da dang ky---\n");
             Console.Write($"\nSo luong: {MonHocDK.Count}\n");
@@ -110,7 +124,7 @@ namespace QuanLySinhVien
             showCurrentListMH(MonHocDK);
         }
         //Tìm môn học trong danh sách đã đăng ký
-        public MonHoc searchMonHocDaDK(string name)
+        public virtual MonHoc searchMonHocDaDK(string name)
         {
             foreach (var item in MonHocDK)
             {
@@ -122,7 +136,7 @@ namespace QuanLySinhVien
             return null;
         }
         //Nhập điểm cho sinh viên
-        public void inputScore()
+        public virtual void inputScore()
         {
             MonHoc x;
             string name, flag;
@@ -147,7 +161,7 @@ namespace QuanLySinhVien
             }
         }
         //Xuất thông tin sinh viên (theo hàng ngang)
-        public void showData()
+        public virtual void showData()
         {
             Console.Write("\n{0,-11}\t{1,-18}\t{2,-3}\t{3}/{4}/{5}\t{6,-11}\t{7}", this.MaSV, this.TenSV, this.GioiTinh, this.NgaySinh.Day, this.NgaySinh.Month, this.NgaySinh.Year, this.Lop, this.Khoa);
         }

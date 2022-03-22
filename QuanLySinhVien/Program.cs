@@ -11,6 +11,8 @@ namespace QuanLySinhVien
     {       
         static void Main(string[] args)
         {
+            NHibernateProfilerBootstrapper.PreStart();
+
             //Lúc chưa áp dụng DI container
             //QuanLy dssv = new QuanLy(new SQLDataBase());
 
@@ -25,6 +27,9 @@ namespace QuanLySinhVien
             QuanLy dssv = container.Resolve<QuanLy>();
             //Dọn dẹp
             container.Dispose();
+
+            NHbernateTest test = new NHbernateTest();
+            test.NHibernateSetup("", "SinhVien","test01", "1234");
             //==================================================
             int chon = 0;        
             do
@@ -87,3 +92,4 @@ namespace QuanLySinhVien
     }
     
 }
+

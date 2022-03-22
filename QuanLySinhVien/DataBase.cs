@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Data.Common;
+
+using NHibernate.Cfg;
+using NHibernate.Dialect;
+using NHibernate.Driver;
 
 namespace QuanLySinhVien
 {
@@ -92,7 +97,7 @@ namespace QuanLySinhVien
                             {
                                 //========Deep copy========= 
                                 var c = tmp[mh_i].Clone();
-                                list_sv[i].MonHocDK.Add((MonHoc)c);
+                                list_sv[i].mhdk().Add((MonHoc)c);
                             }
                         }
                         i++;
@@ -122,7 +127,7 @@ namespace QuanLySinhVien
         //Lấy toàn bộ thông tin từ CSDL
         public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
-            string query1 = "SELECT * FROM dssv";
+            string query1 = "SELECT * FROM SinhVien";
             string query2 = "SELECT * FROM MonHoc";
             string query3 = "SELECT * FROM dkhp";
 
@@ -177,4 +182,63 @@ namespace QuanLySinhVien
             Console.Write("\nStage 4");         
         }
     }
+
+    public class NHbernateTest
+    {
+        /// <summary>
+        /// Beta testing for DataBase with NHibernate
+        /// </summary>
+        /// <param name="datasource"></param>
+        /// <param name="database"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        public void NHibernateSetup(string datasource, string database, string username, string password)
+        {
+            var cfg = new Configuration();
+            string connString = @"Data Source=" + datasource + ";Initial Catalog="
+                        + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
+           
+            cfg.DataBaseIntegration(x =>
+            {
+                x.ConnectionString = connString;
+                x.Driver<SqlClientDriver>();
+                x.Dialect<MsSql2012Dialect>();
+                x.LogSqlInConsole = true;
+            });
+
+            cfg.AddAssembly(Assembly.GetExecutingAssembly());
+            var sefact = cfg.BuildSessionFactory();
+
+            using (var session = sefact.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    DateTime date = new DateTime(2000,7,19);//yyyy-mm-dd
+                                                            //var sinhvien1 = new SinhVien("111", "VCC", "nam", date, "1001TS", "UNKNOWN");
+
+                    //var sinhvien1 = new SinhVien
+                    //{
+                    //    MaSV = "111121",
+                    //    TenSV = "VCD",
+                    //    GioiTinh = "nam",
+                    //    NgaySinh = date,
+                    //    Lop = "11DHTH8",
+                    //    Khoa = "11"
+                    //};
+                    Console.WriteLine("\nFetch the complete list again\n");
+                    var students = session.CreateCriteria<SinhVien>().List<SinhVien>();
+                    int count = 0;
+                    foreach (var student in students)
+                    {
+                        Console.WriteLine("{0} \t{1} \t{2} \t{3}", ++count, student.MaSV, student.TenSV,
+                           student.GioiTinh);
+                    }
+
+                    //session.Save(sinhvien1);
+                    tx.Commit();//Exception
+                }
+            }
+        }
+    }
+    
 }

@@ -1,4 +1,4 @@
 # QuanLySinhVien
 Beta testing 
 ## Infomation
-This project is underconstruction
+This project is under construction

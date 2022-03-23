@@ -370,6 +370,15 @@ namespace QuanLySinhVien
             }
             return;
         }
+
+
+
+        //Test NHibernate
+        public void GetDataWithNHibernate()
+        {
+            NHbernateTest test = new NHbernateTest();
+            test.NHibernateSetup(ref list_SV);
+        }
     }
     /// <summary>
     /// Class phụ 

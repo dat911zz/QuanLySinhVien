@@ -28,8 +28,7 @@ namespace QuanLySinhVien
             //Dọn dẹp
             container.Dispose();
 
-            NHbernateTest test = new NHbernateTest();
-            test.NHibernateSetup("", "SinhVien","test01", "1234");
+            
             //==================================================
             int chon = 0;        
             do
@@ -44,7 +43,8 @@ namespace QuanLySinhVien
                 switch (chon)
                 {
                     case 1:
-                        dssv.GetDataBase();
+                        dssv.GetDataWithNHibernate();
+                        //dssv.GetDataBase();
                         dssv.AutoImportScore();
                         break;
                     case 2:
@@ -71,6 +71,7 @@ namespace QuanLySinhVien
                 }
                 Console.ReadLine();
                 Console.Clear();
+                GC.Collect();
             } while (chon > 0 && chon < 9);
         }
         static void menu()

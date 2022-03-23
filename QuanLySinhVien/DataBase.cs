@@ -9,6 +9,7 @@ using System.Data.Common;
 using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
+using HibernatingRhinos.Profiler.Appender.NHibernate;
 
 namespace QuanLySinhVien
 {
@@ -188,34 +189,33 @@ namespace QuanLySinhVien
         /// <summary>
         /// Beta testing for DataBase with NHibernate
         /// </summary>
-        /// <param name="datasource"></param>
-        /// <param name="database"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        public void NHibernateSetup(string datasource, string database, string username, string password)
+        /// Log: "", "SinhVien","test01", "1234"
+        public void NHibernateSetup(ref List<SinhVien> list_sv)
         {
+            NHibernateProfiler.Initialize();
             var cfg = new Configuration();
-            string connString = @"Data Source=" + datasource + ";Initial Catalog="
-                        + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
-           
+            cfg.Configure($"../../../ORM/hibernate.cfg.xml");//Configure from file hibernate.cfg.xml
+            //string connString = @"Data Source=" + datasource + ";Initial Catalog="
+            //            + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
+
             cfg.DataBaseIntegration(x =>
             {
-                x.ConnectionString = connString;
-                x.Driver<SqlClientDriver>();
-                x.Dialect<MsSql2012Dialect>();
-                x.LogSqlInConsole = true;
+                //x.ConnectionString = connString;
+                //x.Driver<SqlClientDriver>();
+                //x.Dialect<MsSql2012Dialect>();
+                x.LogSqlInConsole = true;//Show các câu lệnh SQL khi thực hiện hàm
             });
 
-            cfg.AddAssembly(Assembly.GetExecutingAssembly());
+            //cfg.AddAssembly(Assembly.GetExecutingAssembly());
             var sefact = cfg.BuildSessionFactory();
 
             using (var session = sefact.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    DateTime date = new DateTime(2000,7,19);//yyyy-mm-dd
-                                                            //var sinhvien1 = new SinhVien("111", "VCC", "nam", date, "1001TS", "UNKNOWN");
+                    DateTime date = new DateTime(2000, 7, 19);//yyyy-mm-dd
 
+                    //============Example For add sv into Table============
                     //var sinhvien1 = new SinhVien
                     //{
                     //    MaSV = "111121",
@@ -225,17 +225,21 @@ namespace QuanLySinhVien
                     //    Lop = "11DHTH8",
                     //    Khoa = "11"
                     //};
+                    //==================================
                     Console.WriteLine("\nFetch the complete list again\n");
                     var students = session.CreateCriteria<SinhVien>().List<SinhVien>();
                     int count = 0;
                     foreach (var student in students)
                     {
-                        Console.WriteLine("{0} \t{1} \t{2} \t{3}", ++count, student.MaSV, student.TenSV,
-                           student.GioiTinh);
+                        Console.WriteLine("{0} \t{1} \t{2} \t{3}", ++count, student.MaSV, student.TenSV, student.GioiTinh);
+                        list_sv.Add(student);
                     }
+
+                    
 
                     //session.Save(sinhvien1);
                     tx.Commit();//Exception
+                    tx.Dispose();
                 }
             }
         }

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="SinhVien.hbm.xml" />
+    <EmbeddedResource Include="ORM\SinhVien.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>

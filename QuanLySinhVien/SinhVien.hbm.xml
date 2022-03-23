@@ -7,6 +7,6 @@
       <property name = "GioiTinh"/> 
       <property name = "NgaySinh"/> 
       <property name = "Lop"/> 
-      <property name = "Khoa"/>
+      <property name = "Khoa"/>   
    </class> 
 </hibernate-mapping>

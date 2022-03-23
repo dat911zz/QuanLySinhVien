@@ -42,7 +42,7 @@ namespace QuanLySinhVien
             //Đọc giá trị từ file
             try
             {
-                line = File.ReadAllLines($"../../../{fname}.txt");
+                line = File.ReadAllLines($"../../../Files/{fname}.txt");
             }
             catch (IOException e)
             {
@@ -81,7 +81,7 @@ namespace QuanLySinhVien
             //Đọc giá trị từ file
             try
             {
-                line = File.ReadAllLines($"../../../{fname}.txt");
+                line = File.ReadAllLines($"../../../Files/{fname}.txt");
             }
             catch (IOException e)
             {
@@ -121,7 +121,7 @@ namespace QuanLySinhVien
             //Đọc giá trị từ file
             try
             {
-                line = File.ReadAllLines($"../../../{fname}.txt");
+                line = File.ReadAllLines($"../../../Files/{fname}.txt");
             }
             catch (IOException e)
             {

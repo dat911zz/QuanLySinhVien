@@ -43,7 +43,7 @@ namespace QuanLySinhVien
                 Console.Clear();
                 switch (chon)
                 {
-                    case 1:             
+                    case 1:
                         dssv.GetDataBase();
                         dssv.AutoImportScore();
                         break;

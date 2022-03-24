@@ -11,8 +11,8 @@ namespace QuanLySinhVien
     {       
         static void Main(string[] args)
         {
-            NHibernateProfilerBootstrapper.PreStart();
-
+            //NHibernateProfilerBootstrapper.PreStart();
+            
             //Lúc chưa áp dụng DI container
             //QuanLy dssv = new QuanLy(new SQLDataBase());
 
@@ -33,7 +33,9 @@ namespace QuanLySinhVien
             int chon = 0;        
             do
             {
+                Console.Clear();
                 menu();
+                
                 Console.Write("\nChon: ");
                 if (int.TryParse(Console.ReadLine(), out chon) == false)
                 {
@@ -43,7 +45,9 @@ namespace QuanLySinhVien
                 switch (chon)
                 {
                     case 1:
-                        dssv.GetDataWithNHibernate();
+                        //dssv.GetDataWithNHibernate();
+                        dssv.GetDataWithORM();
+                        Console.ReadLine();
                         //dssv.GetDataBase();
                         dssv.AutoImportScore();
                         break;
@@ -67,11 +71,11 @@ namespace QuanLySinhVien
                         break;
                     default:
                         Console.WriteLine("EXIT!");
-                        break;
+                        GC.Collect();
+                        return;
                 }
                 Console.ReadLine();
-                Console.Clear();
-                GC.Collect();
+                Console.Clear();              
             } while (chon > 0 && chon < 9);
         }
         static void menu()

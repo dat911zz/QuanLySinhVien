@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
+using QuanLySinhVien.ORM;
+
 namespace QuanLySinhVien
 {
     /// <summary>
@@ -19,6 +21,7 @@ namespace QuanLySinhVien
         public List<SinhVien> list_SV = new List<SinhVien>();
         public List<MonHoc> list_MH = new List<MonHoc>();
         public IDataBase database;
+        public IORM orm;
         /// <summary>
         /// Using Constructor Injection
         /// </summary>
@@ -26,6 +29,11 @@ namespace QuanLySinhVien
         public QuanLy(IDataBase database)
         {
             this.database = database;
+        }
+        public QuanLy(IDataBase db, IORM orm)
+        {
+            this.database = db;
+            this.orm = orm;
         }
         //==================================================================
         //Method      
@@ -376,8 +384,20 @@ namespace QuanLySinhVien
         //Test NHibernate
         public void GetDataWithNHibernate()
         {
-            NHbernateTest test = new NHbernateTest();
+            ORM.DB_NHibernate test = new ORM.DB_NHibernate();
             test.NHibernateSetup(ref list_SV);
+        }
+
+        //Using ORM
+        public void GetDataWithORM()
+        {
+            orm.Read(ref list_SV);
+
+            Console.Write("\nStatus: ");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Completed ");
+            //Console.Clear();
         }
     }
     /// <summary>

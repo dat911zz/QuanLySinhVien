@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using QuanLySinhVien.ORM;
 
 namespace QuanLySinhVien
 {
@@ -27,7 +28,19 @@ namespace QuanLySinhVien
                 Component
                     .For<IDataBase>()
                     .ImplementedBy<XMLDataBase>()//Để test
-                    .LifestyleTransient());          
+                    .LifestyleTransient());
+            //IORM implementation registered
+            container.Register(
+                Component
+                    .For<IORM>()
+                    .ImplementedBy<DB_NHibernate>()
+                    .LifestyleTransient());
+            //IORM implementation registered
+            container.Register(
+                Component
+                    .For<IORM>()
+                    .ImplementedBy<DB_Dapper>()//Để test
+                    .LifestyleTransient());
         }       
     }
 }

@@ -71,9 +71,9 @@ namespace QuanLySinhVien
                         DateTime ngaysinh = reader.GetDateTime(3);
                         string lop = reader.GetString(4);
                         string khoa = reader.GetString(5);
-                        SinhVien sv = new SinhVien();
+                        SinhVien sv = new SinhVien(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
 
-                        sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
+                        //sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
                         list.Add(sv);
                     }
                 }

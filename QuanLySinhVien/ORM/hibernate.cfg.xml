@@ -1,7 +1,6 @@
 ﻿<?xml version = "1.0" encoding = "utf-8" ?> 
 <hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2"> 
-   <session-factory> 
-   
+   <session-factory>
       <property name = "connection.connection_string">
          Data Source = "";
 		 Initial Catalog = "SinhVien";
@@ -9,7 +8,6 @@
 		 User ID = test01;
 		 Password = 1234;
       </property> 
-      
       <property name = "connection.driver_class">
          NHibernate.Driver.SqlClientDriver
       </property> 

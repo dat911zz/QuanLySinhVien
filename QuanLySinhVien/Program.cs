@@ -33,6 +33,7 @@ namespace QuanLySinhVien
             int chon = 0;        
             do
             {
+                Console.ResetColor();
                 Console.Clear();
                 menu();
                 
@@ -46,8 +47,8 @@ namespace QuanLySinhVien
                 {
                     case 1:
                         //dssv.GetDataWithNHibernate();
+                        Console.WriteLine("\nPlease wait for few seconds!");
                         dssv.GetDataWithORM();
-                        Console.ReadLine();
                         //dssv.GetDataBase();
                         dssv.AutoImportScore();
                         break;

@@ -391,13 +391,13 @@ namespace QuanLySinhVien
         //Using ORM
         public void GetDataWithORM()
         {
-            orm.Read(ref list_SV);
+            orm.Extract(ref list_SV, ref list_MH);
 
             Console.Write("\nStatus: ");
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" Completed ");
-            //Console.Clear();
+            Console.ResetColor();
         }
     }
     /// <summary>

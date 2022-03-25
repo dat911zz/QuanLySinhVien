@@ -8,5 +8,9 @@
       <property name = "NgaySinh"/> 
       <property name = "Lop"/> 
       <property name = "Khoa"/>   
-   </class> 
+   </class>
+	<class name = "MonHoc">
+		<id name = "tenMH"></id>
+		<property name = "soTiet"/>
+	</class>
 </hibernate-mapping>

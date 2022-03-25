@@ -6,17 +6,7 @@ namespace QuanLySinhVien.ORM
 {
     class DB_Dapper : IORM
     {
-        public void Delete(ref List<SinhVien> list_sv)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Read(ref List<SinhVien> list_sv)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(ref List<SinhVien> list_sv)
+        public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             throw new NotImplementedException();
         }

@@ -15,51 +15,51 @@ namespace QuanLySinhVien
         ~ MonHoc() { }
         //==================================================================
         //Properties
-        public string tenMH { get; set; }
-        public int soTiet { get; set; }
+        public virtual string tenMH { get; set; }
+        public virtual int soTiet { get; set; }
         private double diemQT { get; set; }
         private double diemTP { get; set; }
         //==================================================================
         //Method
         //Lấy dữ liệu của môn học
-        public void setData(string TenMH, int SoTiet)
+        public virtual void setData(string TenMH, int SoTiet)
         {
             tenMH = TenMH;
             soTiet = SoTiet;
         }
         //Lấy điểm môn học (sinh viên)
-        public void setDiem(double DiemQT, double DiemTP)
+        public virtual void setDiem(double DiemQT, double DiemTP)
         {
             diemQT = DiemQT;
             diemTP = DiemTP;
         }
         //Form thông tin môn học (quản lý)
-        public void showInfo()
+        public virtual void showInfo()
         {
             Console.Write("\n{0,-21}\t{1,-5}",tenMH, soTiet);
         }
         //Form thông tin môn học sinh viên đã đăng ký (sinh viên)
-        public void showInfo_DK()
+        public virtual void showInfo_DK()
         {
             Console.Write("\nTen mon: {0}\nSo tiet: {1}\n", tenMH, soTiet);
         }
         //Form thông tin môn học sinh viên đã đăng ký kèm điểm (sinh viên)
-        public void showInfo_SV()
+        public virtual void showInfo_SV()
         {
             Console.Write("\t{0,-21}\t{1}\t\t{2}\t{3}\t{4}\t{5}",tenMH,soTiet,diemTP,diemQT,diemTongKet(), (isPass() == true ? "Dau" : "Rot"));
         }
         //Tính điểm tổng kết
-        public double diemTongKet()
+        public virtual double diemTongKet()
         {
             return (diemQT + diemTP) / 2;
         }
         //Kiểm tra sinh viên đậu hay rớt môn đã chọn
-        public bool isPass()
+        public virtual bool isPass()
         {
             return diemTongKet() >= 4;
         }
         //Nhập điểm môn học
-        public void inputScore()
+        public virtual void inputScore()
         {
             var tmp = 0.0;
         checkpoint1:
@@ -98,7 +98,7 @@ namespace QuanLySinhVien
 
         //------------------------
         // This is a deep copy implementation of Clone
-        public object Clone()
+        public virtual object Clone()
         {
             return new MonHoc
             {

@@ -7,17 +7,9 @@ namespace QuanLySinhVien.ORM
     public interface IORM
     {
         /// <summary>
-        /// Read database
+        /// Extract database
         /// </summary>
         /// <param name="list_sv">List of Sinh vien</param>
-        public void Read(ref List<SinhVien> list_sv);
-        /// <summary>
-        /// Update database (Coming soon)
-        /// </summary>
-        public void Update(ref List<SinhVien> list_sv);
-        /// <summary>
-        /// Delete database (Coming soon)
-        /// </summary>
-        public void Delete(ref List<SinhVien> list_sv);
+        public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh);
     }
 }

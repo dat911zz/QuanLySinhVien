@@ -33,7 +33,6 @@ namespace QuanLySinhVien
             int chon = 0;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Graphic gp = new Graphic();
-            
             do
             {
                 Console.ResetColor();

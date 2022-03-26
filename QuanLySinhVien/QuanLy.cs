@@ -68,7 +68,7 @@ namespace QuanLySinhVien
                     SinhVien x = new SinhVien();
                     string[] data = line[i].Split(' ');
                     //-------------INPUT DATA----------------
-                    x.setData(data[0], data[1], data[2], DateTime.Parse(data[3]), data[4], data[5]);
+                    x.setData(data[0], data[1], data[2], DateTime.Parse(data[3]), data[4], data[5]);                   
                     //---------------------------------------
                     //Thêm phần tử vào cuối DSLK
                     list_SV.Add(x);

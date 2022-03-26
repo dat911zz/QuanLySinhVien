@@ -108,5 +108,5 @@ namespace QuanLySinhVien
                 diemQT = this.diemQT,
             };
         }
-    }
+    }    
 }

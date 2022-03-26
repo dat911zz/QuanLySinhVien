@@ -14,14 +14,6 @@ namespace QuanLySinhVien
         //==================================================================
         //Contructor & Destructor
         public QuanLy() { }
-        ~QuanLy() { }
-        //==================================================================
-        //Properties
-
-        public List<SinhVien> list_SV = new List<SinhVien>();
-        public List<MonHoc> list_MH = new List<MonHoc>();
-        public IDataBase database;
-        public IORM orm;
         /// <summary>
         /// Using Constructor Injection
         /// </summary>
@@ -35,6 +27,15 @@ namespace QuanLySinhVien
             this.database = db;
             this.orm = orm;
         }
+        ~QuanLy() { }
+        //==================================================================
+        //Properties
+
+        public List<SinhVien> list_SV = new List<SinhVien>();
+        public List<MonHoc> list_MH = new List<MonHoc>();
+        public IDataBase database;
+        public IORM orm;
+        
         //==================================================================
         //Method      
         //----------------------------------------------------------

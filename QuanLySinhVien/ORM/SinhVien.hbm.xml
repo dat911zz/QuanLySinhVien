@@ -13,4 +13,16 @@
 		<id name = "tenMH"></id>
 		<property name = "soTiet"/>
 	</class>
+	<class name ="DKHP">
+		<property name = "C1"/>
+		<property name = "C2"/>
+		<property name = "C3"/>
+		<property name = "C4"/>
+		<property name = "C5"/>
+		<property name = "C6"/>
+		<property name = "C7"/>
+		<property name = "C8"/>
+		<property name = "C9"/>
+		<property name = "C10"/>
+	</class>
 </hibernate-mapping>

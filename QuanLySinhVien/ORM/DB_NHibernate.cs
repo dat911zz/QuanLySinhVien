@@ -99,11 +99,11 @@ namespace QuanLySinhVien.ORM
             
         }
 
-        public string GenerateConnectionString(string datasource, string db, string username, string pass)
-        {
-            return @"Data Source=" + datasource + ";Initial Catalog="
-                        + db + ";Persist Security Info=True;User ID=" + username + ";Password=" + pass;
-        }
+        //public string GenerateConnectionString(string datasource, string db, string username, string pass)
+        //{
+        //    return @"Data Source=" + datasource + ";Initial Catalog="
+        //                + db + ";Persist Security Info=True;User ID=" + username + ";Password=" + pass;
+        //}
         public NHibernate.ISessionFactory NHibernateSetup()
         {
             NHibernateProfiler.Initialize();

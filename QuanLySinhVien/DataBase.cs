@@ -24,21 +24,37 @@ namespace QuanLySinhVien
         void Extract(ref List<SinhVien> list_SV, ref List<MonHoc> list_MH);
     }
     /// <summary>
+    /// Utility class
+    /// </summary>
+    public class Utility
+    {
+        /// <summary>
+        /// Generate a connection string of database
+        /// </summary>
+        /// <param name="datasource">Server name</param>
+        /// <param name="db">Database name</param>
+        /// <param name="username">Name of user</param>
+        /// <param name="pass">Password of the user</param>
+        public string GenerateConnectionString(string datasource, string db, string username, string pass)
+        {
+            //
+            // Data Source=<Server-Name>;Initial Catalog=<table>;Persist Security Info=True;User ID=<username>;Password=<password>
+            //
+            return @"Data Source=" + datasource + ";Initial Catalog="
+                        + db + ";Persist Security Info=True;User ID=" + username + ";Password=" + pass;
+        }
+    }
+    /// <summary>
     /// Interacting with SQL Databse 
     /// </summary>
-    public class SQLDataBase : IDataBase
+    public class SQLDataBase : Utility, IDataBase
     {
         //---log test server name : DESKTOP-GUE0JS7
         SqlCommand cmd = new SqlCommand();
         //Khởi tạo kết nối tới CSDL
         public SqlConnection GetConnection(string datasource, string database, string username, string password)
         {
-            //
-            // Data Source=<Server-Name>;Initial Catalog=<table>;Persist Security Info=True;User ID=<username>;Password=<password>
-            //
-            string connString = @"Data Source=" + datasource + ";Initial Catalog="
-                        + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
-            SqlConnection conn = new SqlConnection(connString);
+            SqlConnection conn = new SqlConnection(GenerateConnectionString(datasource,database, username, password));
             return conn;
             
         }
@@ -72,8 +88,6 @@ namespace QuanLySinhVien
                         string lop = reader.GetString(4);
                         string khoa = reader.GetString(5);
                         SinhVien sv = new SinhVien(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
-
-                        //sv.setData(mssv, tensv, gioitinh, ngaysinh, lop, khoa);
                         list.Add(sv);
                     }
                 }

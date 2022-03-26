@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using Castle.Windsor;
 
 namespace QuanLySinhVien
@@ -28,16 +29,21 @@ namespace QuanLySinhVien
             //Dọn dẹp
             container.Dispose();
 
-            
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             //==================================================
-            int chon = 0;        
+            int chon = 0;
+
+            Graphic gp = new Graphic();
+            
             do
             {
                 Console.ResetColor();
                 Console.Clear();
+                gp.DrawForm();
+                Console.ResetColor();
                 menu();
                 
-                Console.Write("\nChon: ");
+                Console.Write("\nChọn: ");
                 if (int.TryParse(Console.ReadLine(), out chon) == false)
                 {
                     return;
@@ -72,6 +78,7 @@ namespace QuanLySinhVien
                         break;
                     default:
                         Console.WriteLine("EXIT!");
+                        Console.WriteLine("Cleaning up...");
                         GC.Collect();
                         return;
                 }
@@ -81,18 +88,38 @@ namespace QuanLySinhVien
         }
         static void menu()
         {
-            Console.Write("\n     ========Chuong trinh quan ly sinh vien========");
-            Console.Write("\n\t\t1. Lay data tu CSDL");
-            Console.Write("\n\t\t2. Xuat danh sach sinh vien");
-            Console.Write("\n\t\t3. Xuat thong tin sinh vien");
-            Console.Write("\n\t\t4. Xem so mon hoc");
-            Console.Write("\n\t\t5. Xem so diem mon hoc");
-            Console.Write("\n\t\t6. Nhap diem sinh vien");
-            Console.Write("\n\t\t7. Xem ket qua hoc tap\n");
-            for (int i = 0; i < 100; i++)
-            {
-                Console.Write("-");
-            }
+            int y = 7;
+            Console.SetCursorPosition(25, y++);
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("========Chương trình quản lý sinh viên========");
+            Console.ResetColor();
+            y = 9;
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("1. Lay data tu CSDL");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("2. Xuat danh sach sinh vien");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("3. Xuat thong tin sinh vien");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("4. Xem so mon hoc");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("5. Xem so diem mon hoc");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("6. Nhap diem sinh vien");
+            Console.SetCursorPosition(35, y++);
+
+            Console.Write("7. Xem ket qua hoc tap\n");
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Console.Write("-");
+            //}
             Console.WriteLine();
         }
     }

@@ -29,17 +29,18 @@ namespace QuanLySinhVien
                     .For<IDataBase>()
                     .ImplementedBy<XMLDataBase>()//Để test
                     .LifestyleTransient());
-            //IORM implementation registered
-            container.Register(
-                Component
-                    .For<IORM>()
-                    .ImplementedBy<DB_NHibernate>()
-                    .LifestyleTransient());
+            
             //IORM implementation registered
             container.Register(
                 Component
                     .For<IORM>()
                     .ImplementedBy<DB_Dapper>()//Để test
+                    .LifestyleTransient());
+            //IORM implementation registered
+            container.Register(
+                Component
+                    .For<IORM>()
+                    .ImplementedBy<DB_NHibernate>()
                     .LifestyleTransient());
         }       
     }

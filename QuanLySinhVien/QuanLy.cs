@@ -197,7 +197,18 @@ namespace QuanLySinhVien
         {
             database.Extract(ref list_SV, ref list_MH);
         }
+        //----------------------------------------------------------
+        //Using ORM
+        public void GetDataWithORM()
+        {
+            orm.Extract(ref list_SV, ref list_MH);
 
+            Console.Write("\nStatus: ");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Completed ");
+            Console.ResetColor();
+        }
         //----------------------------------------------------------
         /// <summary>
         /// Functions
@@ -379,27 +390,7 @@ namespace QuanLySinhVien
             }
             return;
         }
-
-
-
-        //Test NHibernate
-        public void GetDataWithNHibernate()
-        {
-            ORM.DB_NHibernate test = new ORM.DB_NHibernate();
-            test.NHibernateSetup(ref list_SV);
-        }
-
-        //Using ORM
-        public void GetDataWithORM()
-        {
-            orm.Extract(ref list_SV, ref list_MH);
-
-            Console.Write("\nStatus: ");
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(" Completed ");
-            Console.ResetColor();
-        }
+        
     }
     /// <summary>
     /// Class phụ 

@@ -19,6 +19,11 @@ namespace QuanLySinhVien.ORM
             ExtractMonHoc(sefact, ref list_mh);
             ExtractDKHP(ref list_sv, list_mh);
         }
+        /// <summary>
+        /// Trích xuất bảng SinhVien
+        /// </summary>
+        /// <param name="sefact"></param>
+        /// <param name="list_sv"></param>
         public void ExtractSinhVien(NHibernate.ISessionFactory sefact, ref List<SinhVien> list_sv)
         {
             using (var session = sefact.OpenSession())
@@ -33,6 +38,11 @@ namespace QuanLySinhVien.ORM
                 }
             }
         }
+        /// <summary>
+        /// Trích xuất bảng MonHoc
+        /// </summary>
+        /// <param name="sefact"></param>
+        /// <param name="list_mh"></param>
         public void ExtractMonHoc(NHibernate.ISessionFactory sefact, ref List<MonHoc> list_mh)
         {
             using (var session = sefact.OpenSession())
@@ -47,6 +57,11 @@ namespace QuanLySinhVien.ORM
                 }
             }
         }
+        /// <summary>
+        /// Trích xuất và đăng ký học phần tự động cho sinh viên
+        /// </summary>
+        /// <param name="list_sv"></param>
+        /// <param name="list_mh"></param>
         public void ExtractDKHP(ref List<SinhVien> list_sv, List<MonHoc> list_mh)
         {
             SQLDataBase db = new SQLDataBase();
@@ -98,12 +113,10 @@ namespace QuanLySinhVien.ORM
             }
             
         }
-
-        //public string GenerateConnectionString(string datasource, string db, string username, string pass)
-        //{
-        //    return @"Data Source=" + datasource + ";Initial Catalog="
-        //                + db + ";Persist Security Info=True;User ID=" + username + ";Password=" + pass;
-        //}
+        /// <summary>
+        /// Setup custom configuration for NHibernate
+        /// </summary>
+        /// <returns></returns>
         public NHibernate.ISessionFactory NHibernateSetup()
         {
             NHibernateProfiler.Initialize();

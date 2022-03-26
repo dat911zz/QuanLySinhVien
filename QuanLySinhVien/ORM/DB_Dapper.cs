@@ -12,6 +12,10 @@ namespace QuanLySinhVien.ORM
             ExtractMonHoc(ref list_mh);
             ExtractDKHP(ref list_sv, list_mh);
         }
+        /// <summary>
+        /// Trích xuất bảng SinhVien
+        /// </summary>
+        /// <param name="list_sv"></param>
         public void ExtractSinhVien(ref List<SinhVien> list_sv)
         {
             string sql = "SELECT * FROM SinhVien";
@@ -20,6 +24,10 @@ namespace QuanLySinhVien.ORM
                 list_sv = conn.Query<SinhVien>(sql).AsList();
             }
         }
+        /// <summary>
+        /// Trích xuất bảng MonHoc
+        /// </summary>
+        /// <param name="list_mh"></param>
         public void ExtractMonHoc(ref List<MonHoc> list_mh)
         {
             string sql = "SELECT * FROM MonHoc";
@@ -28,6 +36,11 @@ namespace QuanLySinhVien.ORM
                 list_mh = conn.Query<MonHoc>(sql).AsList();
             }
         }
+        /// <summary>
+        /// Trích xuất và đăng ký học phần tự động cho sinh viên
+        /// </summary>
+        /// <param name="list_sv"></param>
+        /// <param name="list_mh"></param>
         public void ExtractDKHP(ref List<SinhVien> list_sv, List<MonHoc> list_mh)
         {
             string sql = "SELECT * FROM dkhp";
@@ -72,4 +85,3 @@ namespace QuanLySinhVien.ORM
         }
     }
 }
-

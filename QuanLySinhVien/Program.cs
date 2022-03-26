@@ -6,7 +6,7 @@ namespace QuanLySinhVien
 {
     /// <summary>
     /// *Update: 
-    /// Using Dependency Injection Container for Database
+    /// Using Dapper and NHibernate framework
     /// </summary>
     class Program
     {       
@@ -29,10 +29,9 @@ namespace QuanLySinhVien
             //Dọn dẹp
             container.Dispose();
 
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
             //==================================================
             int chon = 0;
-
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Graphic gp = new Graphic();
             
             do
@@ -43,12 +42,12 @@ namespace QuanLySinhVien
                 Console.ResetColor();
                 menu();
                 
-                Console.Write("\nChọn: ");
                 if (int.TryParse(Console.ReadLine(), out chon) == false)
                 {
                     return;
                 }
                 Console.Clear();
+                Console.ResetColor();
                 switch (chon)
                 {
                     case 1:
@@ -91,10 +90,11 @@ namespace QuanLySinhVien
             int y = 7;
             Console.SetCursorPosition(25, y++);
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("========Chương trình quản lý sinh viên========");
             Console.ResetColor();
             y = 9;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(35, y++);
 
             Console.Write("1. Lay data tu CSDL");
@@ -115,12 +115,10 @@ namespace QuanLySinhVien
             Console.Write("6. Nhap diem sinh vien");
             Console.SetCursorPosition(35, y++);
 
-            Console.Write("7. Xem ket qua hoc tap\n");
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    Console.Write("-");
-            //}
-            Console.WriteLine();
+            Console.Write("7. Xem ket qua hoc tap");
+            Console.SetCursorPosition(42, y++);
+
+            Console.Write("Chọn: ");
         }
     }
     

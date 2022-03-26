@@ -4,6 +4,9 @@ using System.Data.SqlClient;
 
 namespace QuanLySinhVien.ORM
 {
+    /// <summary>
+    /// Class for Dapper Library
+    /// </summary>
     class DB_Dapper : Utility, IORM
     {
         public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)

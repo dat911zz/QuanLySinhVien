@@ -10,6 +10,9 @@ using System.Data.Common;
 
 namespace QuanLySinhVien.ORM
 {
+    /// <summary>
+    /// Class for NHibernate Library
+    /// </summary>
     public class DB_NHibernate : IORM
     {
         public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)

@@ -6,7 +6,7 @@ namespace QuanLySinhVien
 {
     /// <summary>
     /// *Update: 
-    /// Using Dapper and NHibernate framework
+    /// Using Dapper and NHibernate library
     /// </summary>
     class Program
     {       

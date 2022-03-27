@@ -185,7 +185,7 @@ namespace QuanLySinhVien
             {
                 for (int j = 0; j < list_SV[i].mhdk().Count; j++)
                 {
-                    list_SV[i].mhdk()[j].setDiem(score1.Next(1, 10), score2.Next(2, 10));
+                    list_SV[i].mhdk()[j].setDiem(score1.Next(0, 10), score2.Next(2, 10));
                 }
             }
         }

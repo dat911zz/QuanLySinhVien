@@ -35,10 +35,16 @@ namespace QuanLySinhVien
         protected List<MonHoc> MonHocDK = new List<MonHoc>();
         //==================================================================
         //Method
-        public virtual List<MonHoc> mhdk()
+        public virtual List<MonHoc> MHDK
         {
-            List<MonHoc> ds = MonHocDK;
-            return ds;
+            get
+            {
+                return MonHocDK;
+            }
+            set
+            {
+                MonHocDK = value;
+            }           
         }
 
         /// <summary>

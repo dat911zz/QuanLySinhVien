@@ -98,7 +98,7 @@ namespace QuanLySinhVien.ORM
                                 {
                                     //========Deep copy========= 
                                     var c = tmp[mh_i].Clone();
-                                    list_sv[i].mhdk().Add((MonHoc)c);
+                                    list_sv[i].MHDK.Add((MonHoc)c);
                                 }
                             }
                             i++;

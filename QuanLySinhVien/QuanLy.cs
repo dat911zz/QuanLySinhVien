@@ -157,7 +157,7 @@ namespace QuanLySinhVien
                         {
                             //========Deep copy========= 
                             var c = tmp[mh_i].Clone();
-                            list_SV[i].mhdk().Add((MonHoc)c);
+                            list_SV[i].MHDK.Add((MonHoc)c);
                         }
                     }
                     Thread.Sleep(50);
@@ -183,9 +183,9 @@ namespace QuanLySinhVien
 
             for (int i = 0; i < list_SV.Count; i++)
             {
-                for (int j = 0; j < list_SV[i].mhdk().Count; j++)
+                for (int j = 0; j < list_SV[i].MHDK.Count; j++)
                 {
-                    list_SV[i].mhdk()[j].setDiem(score1.Next(0, 10), score2.Next(2, 10));
+                    list_SV[i].MHDK[j].setDiem(score1.Next(0, 10), score2.Next(2, 10));
                 }
             }
         }
@@ -315,13 +315,13 @@ namespace QuanLySinhVien
             {
                 Console.Write($"\n\n\t\t\t   -Sinh vien: {list_SV[i].getTenSV()}-\n\n");
                 Khuon_MH_Full();
-                for (int j = 0; j < list_SV[i].mhdk().Count; j++)
+                for (int j = 0; j < list_SV[i].MHDK.Count; j++)
                 {
-                    if (list_SV[i].mhdk()[j].isPass() == false)
+                    if (list_SV[i].MHDK[j].isPass() == false)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
-                    list_SV[i].mhdk()[j].showInfo_SV();
+                    list_SV[i].MHDK[j].showInfo_SV();
                     Console.ResetColor();
                     Console.WriteLine();
                 }
@@ -371,13 +371,13 @@ namespace QuanLySinhVien
 
             Console.Write($"\n\n\t\t\t   -Sinh vien: {x.getTenSV()}-\n\n");
             Khuon_MH_Full();
-            for (int i = 0; i < x.mhdk().Count; i++)
+            for (int i = 0; i < x.MHDK.Count; i++)
             {
-                if (x.mhdk()[i].isPass() == false)
+                if (x.MHDK[i].isPass() == false)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
-                x.mhdk()[i].showInfo_SV();
+                x.MHDK[i].showInfo_SV();
                 Console.ResetColor();
                 Console.WriteLine();
             }

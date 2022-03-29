@@ -1,0 +1,402 @@
+[
+  {
+    "GioiTinh": "nam",
+    "Khoa": "11",
+    "Lop": "11DHTH8",
+    "MaSV": "1111",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "Giai-Tich",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "HDT",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ],
+    "NgaySinh": "2002-07-19T00:00:00",
+    "TenSV": "VuVanHoang"
+  },
+  {
+    "MaSV": "111111",
+    "TenSV": "DoDucThe",
+    "GioiTinh": "nam",
+    "NgaySinh": "1999-03-13T00:00:00",
+    "Lop": "09DHTP1",
+    "Khoa": "9",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "Giai-Tich",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ]
+  },
+  {
+    "MaSV": "111121",
+    "TenSV": "PhamHuyHoang",
+    "GioiTinh": "nam",
+    "NgaySinh": "2000-07-19T00:00:00",
+    "Lop": "11DHTH8",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "KTLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "Giai-Tich",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ]
+  },
+  {
+    "MaSV": "132323",
+    "TenSV": "VoVanTan",
+    "GioiTinh": "nam",
+    "NgaySinh": "1999-07-20T00:00:00",
+    "Lop": "11DHTH4",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "KTLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "HDT",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "Co-Hoc-Luong-Tu",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "200120",
+    "TenSV": "VuVanA",
+    "GioiTinh": "nam",
+    "NgaySinh": "2002-01-01T00:00:00",
+    "Lop": "11DHTH8",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "HDT",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "201111",
+    "TenSV": "NguyenTranYen",
+    "GioiTinh": "nu",
+    "NgaySinh": "2001-03-20T00:00:00",
+    "Lop": "11DHTH9",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ]
+  },
+  {
+    "MaSV": "211211",
+    "TenSV": "LaiQuanSu",
+    "GioiTinh": "nam",
+    "NgaySinh": "2002-03-03T00:00:00",
+    "Lop": "11DHTH1",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "HDT",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "Co-Hoc-Luong-Tu",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "212121",
+    "TenSV": "VuNgocNguyen",
+    "GioiTinh": "nu",
+    "NgaySinh": "2001-03-03T00:00:00",
+    "Lop": "11DHTH2",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ]
+  },
+  {
+    "MaSV": "222221",
+    "TenSV": "NguyenTanSang",
+    "GioiTinh": "nam",
+    "NgaySinh": "2002-03-06T00:00:00",
+    "Lop": "10DHTP1",
+    "Khoa": "10",
+    "MHDK": [
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "KTLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Co-Hoc-Luong-Tu",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "333333",
+    "TenSV": "LeVanB",
+    "GioiTinh": "nu",
+    "NgaySinh": "2001-09-13T00:00:00",
+    "Lop": "11DHBM4",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "KTLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "Giai-Tich",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "Co-Hoc-Luong-Tu",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "444444",
+    "TenSV": "Jhin",
+    "GioiTinh": "nam",
+    "NgaySinh": "2044-04-04T00:00:00",
+    "Lop": "10DHBM6",
+    "Khoa": "10",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "CTDL\u0026GT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "Giai-Tich",
+        "soTiet": 24
+      },
+      {
+        "tenMH": "TH-CTRR",
+        "soTiet": 6
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "Co-Hoc-Luong-Tu",
+        "soTiet": 24
+      }
+    ]
+  },
+  {
+    "MaSV": "999999",
+    "TenSV": "VVV",
+    "GioiTinh": "nam",
+    "NgaySinh": "2002-07-10T00:00:00",
+    "Lop": "11DHTH8",
+    "Khoa": "11",
+    "MHDK": [
+      {
+        "tenMH": "Toan-Roi-Rac",
+        "soTiet": 20
+      },
+      {
+        "tenMH": "NMLT",
+        "soTiet": 30
+      },
+      {
+        "tenMH": "CTRR",
+        "soTiet": 12
+      },
+      {
+        "tenMH": "Xac-Xuat-Thong-Ke",
+        "soTiet": 20
+      }
+    ]
+  }
+]

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Text.Json;
 using System.Drawing;
 using Castle.Windsor;
+using System.IO;
 
 namespace QuanLySinhVien
 {
@@ -73,6 +75,18 @@ namespace QuanLySinhVien
                         break;
                     case 7:
                         dssv.CheckPassedMH();
+                        break;
+                    case 8:
+                        SinhVien a = new SinhVien("1231", "VDSD", "nam", DateTime.Today, "hdhdhd", "IT");
+                        string jsonString = JsonSerializer.Serialize(dssv.list_SV);
+                        
+                        string[] arr = jsonString.Split("]}");
+                        foreach (var item in arr)
+                        {
+                            Console.WriteLine("\n\n" + item);
+                        }
+                        string fname = "../../../JSONs/Test01.json";
+                        File.WriteAllText(fname, jsonString);
                         break;
                     default:
                         Console.WriteLine("EXIT!");

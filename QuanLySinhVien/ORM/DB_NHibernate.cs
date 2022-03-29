@@ -106,6 +106,7 @@ namespace QuanLySinhVien.ORM
                     }
                 }
                 //-------------------------------------
+                conn.Close();
             }
             catch (Exception e)
             {

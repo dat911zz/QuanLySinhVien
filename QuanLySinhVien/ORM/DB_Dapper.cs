@@ -7,8 +7,9 @@ namespace QuanLySinhVien.ORM
     /// <summary>
     /// Class for Dapper Library
     /// </summary>
-    class DB_Dapper : Utility, IORM
+    class DB_Dapper : IORM
     {
+        private Utility unt = new Utility();
         public void Extract(ref List<SinhVien> list_sv, ref List<MonHoc> list_mh)
         {
             ExtractSinhVien(ref list_sv);
@@ -22,7 +23,7 @@ namespace QuanLySinhVien.ORM
         public void ExtractSinhVien(ref List<SinhVien> list_sv)
         {
             string sql = "SELECT * FROM SinhVien";
-            using (var conn = new SqlConnection(GenerateConnectionString("", "SinhVien", "test01", "1234")))
+            using (var conn = new SqlConnection(unt.GenerateConnectionString("", "SinhVien", "test01", "1234")))
             {
                 list_sv = conn.Query<SinhVien>(sql).AsList();
             }
@@ -34,7 +35,7 @@ namespace QuanLySinhVien.ORM
         public void ExtractMonHoc(ref List<MonHoc> list_mh)
         {
             string sql = "SELECT * FROM MonHoc";
-            using (var conn = new SqlConnection(GenerateConnectionString("", "SinhVien", "test01", "1234")))
+            using (var conn = new SqlConnection(unt.GenerateConnectionString("", "SinhVien", "test01", "1234")))
             {
                 list_mh = conn.Query<MonHoc>(sql).AsList();
             }
@@ -47,7 +48,7 @@ namespace QuanLySinhVien.ORM
         public void ExtractDKHP(ref List<SinhVien> list_sv, List<MonHoc> list_mh)
         {
             string sql = "SELECT * FROM dkhp";
-            using (var conn = new SqlConnection(GenerateConnectionString("", "SinhVien", "test01", "1234")))
+            using (var conn = new SqlConnection(unt.GenerateConnectionString("", "SinhVien", "test01", "1234")))
             {
                 List<DKHP> list_dkhp = conn.Query<DKHP>(sql).AsList();
 

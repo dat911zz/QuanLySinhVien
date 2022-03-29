@@ -47,14 +47,15 @@ namespace QuanLySinhVien
     /// <summary>
     /// Interacting with SQL Databse 
     /// </summary>
-    public class SQLDataBase : Utility, IDataBase
+    public class SQLDataBase : IDataBase
     {
         //---log test server name : DESKTOP-GUE0JS7
         SqlCommand cmd = new SqlCommand();
+        Utility unt = new Utility();
         //Khởi tạo kết nối tới CSDL
         public SqlConnection GetConnection(string datasource, string database, string username, string password)
         {
-            SqlConnection conn = new SqlConnection(GenerateConnectionString(datasource,database, username, password));
+            SqlConnection conn = new SqlConnection(unt.GenerateConnectionString(datasource,database, username, password));
             return conn;
             
         }
@@ -163,6 +164,7 @@ namespace QuanLySinhVien
                 extractMonHocTable(query2, ref list_mh);
                 extractDKHPTable(query3, ref list_sv, ref list_mh);
                 //-------------------------------------
+                conn.Close();
             }
             catch (Exception e)
             {

@@ -9,7 +9,7 @@ namespace QuanLySinhVien
     /// <summary>
     /// Class for Quan Ly Sinh Vien
     /// </summary>
-    public class QuanLy : Viewer
+    public class QuanLy
     {
         //==================================================================
         //Contructor & Destructor
@@ -31,14 +31,30 @@ namespace QuanLySinhVien
         //==================================================================
         //Properties
 
-        public List<SinhVien> list_SV = new List<SinhVien>();
-        public List<MonHoc> list_MH = new List<MonHoc>();
+        //public List<SinhVien> list_SV = new List<SinhVien>();
+        //public List<MonHoc> list_MH = new List<MonHoc>();
+        private List<SinhVien> listSV = new List<SinhVien>();
+        private List<MonHoc> listMH = new List<MonHoc>();
+
+        public List<SinhVien> list_SV { get; set; }
+        public List<MonHoc> list_MH { get; set; }
+
+        
+
+
+        private Viewer view = new Viewer();
         public IDataBase database;
         public IORM orm;
-        
+
         //==================================================================
         //Method      
         //----------------------------------------------------------
+
+        public void getList(List<SinhVien> sv, List<MonHoc> mh)
+        {
+            this.list_SV = sv;
+            this.list_MH = mh;
+        }
         /// <summary>
         /// Import data from file
         /// </summary>
@@ -194,15 +210,18 @@ namespace QuanLySinhVien
         /// Import data from Database
         /// </summary>
         public void GetDataBase()
-        {
-            database.Extract(ref list_SV, ref list_MH);
+        {          
+            database.Extract(ref listSV, ref listMH);
+            getList(listSV, listMH);
         }
         //----------------------------------------------------------
-        //Using ORM
+        /// <summary>
+        /// Using ORM
+        /// </summary>
         public void GetDataWithORM()
         {
-            orm.Extract(ref list_SV, ref list_MH);
-
+            orm.Extract(ref listSV, ref listMH);
+            getList(listSV, listMH);
             Console.Write("\nStatus: ");
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
@@ -218,7 +237,7 @@ namespace QuanLySinhVien
         public void showList()
         {
             Console.WriteLine("\n\t\t\t-Danh sach sinh vien-");
-            Khuon_SV();
+            view.Khuon_SV();
             Console.ResetColor();
             if (list_SV.Count < 1)
             {
@@ -314,7 +333,7 @@ namespace QuanLySinhVien
             for (int i = 0; i < list_SV.Count; i++)
             {
                 Console.Write($"\n\n\t\t\t   -Sinh vien: {list_SV[i].getTenSV()}-\n\n");
-                Khuon_MH_Full();
+                view.Khuon_MH_Full();
                 for (int j = 0; j < list_SV[i].MHDK.Count; j++)
                 {
                     if (list_SV[i].MHDK[j].isPass() == false)
@@ -370,7 +389,7 @@ namespace QuanLySinhVien
             }
 
             Console.Write($"\n\n\t\t\t   -Sinh vien: {x.getTenSV()}-\n\n");
-            Khuon_MH_Full();
+            view.Khuon_MH_Full();
             for (int i = 0; i < x.MHDK.Count; i++)
             {
                 if (x.MHDK[i].isPass() == false)

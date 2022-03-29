@@ -8,7 +8,7 @@ namespace QuanLySinhVien
     /// <summary>
     /// Class for SinhVien
     /// </summary>
-    public class SinhVien : Viewer
+    public class SinhVien
     {
         //==================================================================
         //Contructor & Destructor
@@ -33,6 +33,7 @@ namespace QuanLySinhVien
         public virtual string Khoa { get; set; }
 
         protected List<MonHoc> MonHocDK = new List<MonHoc>();
+        private Viewer view = new Viewer();
         //==================================================================
         //Method
         public virtual List<MonHoc> MHDK
@@ -104,9 +105,9 @@ namespace QuanLySinhVien
         public virtual void dangKyMonHoc(List<MonHoc> list_MH)
         {
             string pick;
-            showCurrentListMH(list_MH);
+            view.showCurrentListMH(list_MH);
             Console.WriteLine();
-            DuongKe();
+            view.DuongKe();
             Console.Write("\n-Dang Ky Mon Hoc-");
             foreach (var item in list_MH)
             {
@@ -126,8 +127,8 @@ namespace QuanLySinhVien
         {
             Console.Write("\n\t---Cac mon hoc da dang ky---\n");
             Console.Write($"\nSo luong: {MonHocDK.Count}\n");
-            DuongKe();
-            showCurrentListMH(MonHocDK);
+            view.DuongKe();
+            view.showCurrentListMH(MonHocDK);
         }
         //Tìm môn học trong danh sách đã đăng ký
         public virtual MonHoc searchMonHocDaDK(string name)

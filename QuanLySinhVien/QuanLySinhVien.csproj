@@ -6,7 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Files\Diem.txt" />
+    <None Remove="Files\DKHP.txt" />
+    <None Remove="Files\dssv.txt" />
+    <None Remove="Files\MonHoc.txt" />
     <None Remove="SinhVien.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Files\Diem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\DKHP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\dssv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\MonHoc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

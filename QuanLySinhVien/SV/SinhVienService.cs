@@ -1,51 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 
-namespace QuanLySinhVien
+namespace QuanLySinhVien.SV
 {
-    /// <summary>
-    /// Class for SinhVien
-    /// </summary>
-    public class SinhVien
+    public class SinhVienService
     {
-        //==================================================================
-        //Contructor & Destructor
-        public SinhVien() { }
-        public SinhVien(string ma, string ten, string gioitinh, DateTime ngaysinh, string lop, string khoa)
+        //private Viewer view = new Viewer();
+        private SinhVien sv { get; set; }
+        private Viewer view { get; set; }
+        public SinhVienService(SinhVien sv)
         {
-            this.MaSV = ma;
-            this.TenSV = ten;
-            this.GioiTinh = gioitinh;
-            this.NgaySinh = ngaysinh;
-            this.Lop = lop;
-            this.Khoa = khoa;
-        }
-        ~ SinhVien() { }
-        //==================================================================
-        //Properties
-        public virtual string MaSV { get; set; }
-        public virtual string TenSV { get; set; }
-        public virtual string GioiTinh { get; set; }
-        public virtual DateTime NgaySinh  { get; set; }
-        public virtual string Lop { get; set; }
-        public virtual string Khoa { get; set; }
-
-        protected List<MonHoc> MonHocDK = new List<MonHoc>();
-        private Viewer view = new Viewer();
-        //==================================================================
-        //Method
-        public virtual List<MonHoc> MHDK
-        {
-            get
-            {
-                return MonHocDK;
-            }
-            set
-            {
-                MonHocDK = value;
-            }           
+            this.sv = sv;
         }
 
         /// <summary>
@@ -53,57 +19,51 @@ namespace QuanLySinhVien
         /// </summary>
 
         //Nhập thông tin sinh viên (thủ công)
-        public virtual void setData()
+        public SinhVien Input()
         {
+            
             Console.WriteLine("-Nhap thong tin cua sinh vien-");
             Console.Write("\nMa sinh vien: ");
-            MaSV = Convert.ToString(Console.ReadLine());
+            sv.MaSV = Convert.ToString(Console.ReadLine());
             Console.Write("\nHo ten: ");
-            TenSV = Convert.ToString(Console.ReadLine());
+            sv.TenSV = Convert.ToString(Console.ReadLine());
             Console.Write("\nGioi tinh: ");
-            GioiTinh = Convert.ToString(Console.ReadLine());
-            
+            sv.GioiTinh = Convert.ToString(Console.ReadLine());
+
             DateTime date = new DateTime();
             bool flag;
             do
             {
                 Console.Write("\nNhap ngay sinh(mm/dd/yy) :");//theo thứ tự tháng/ngày/năm
-                flag = DateTime.TryParse(Console.ReadLine(), out date);               
+                flag = DateTime.TryParse(Console.ReadLine(), out date);
                 if (flag == false)
                 {
                     Console.WriteLine("KHONG DUNG DINH DANG, VUI LONG NHAP LAI!");
                 }
 
             } while (flag == false);
-            NgaySinh = date;
+            sv.NgaySinh = date;
             Console.Write("\nLop: ");
-            Lop = Convert.ToString(Console.ReadLine());
+            sv.Lop = Convert.ToString(Console.ReadLine());
             Console.Write("\nKhoa: ");
-            Khoa = Convert.ToString(Console.ReadLine());
+            sv.Khoa = Convert.ToString(Console.ReadLine());
+            return sv;
         }
-        //Lấy thông tin sinh viên (random, readfile...)
-        public virtual void setData(string maSV, string tenSV, string gioiTinh, DateTime ngaySinh, string lop, string khoa)
-        {
-            MaSV = maSV;
-            TenSV = tenSV;
-            GioiTinh = gioiTinh;
-            NgaySinh = ngaySinh;
-            Lop = lop;
-            Khoa = khoa;
-        }
+        
         //Trả về tên sinh viên
-        public virtual string getTenSV()
+        public string getTenSV()
         {
-            return TenSV;
+            return sv.TenSV;
         }
         //Xuất thông tin sinh viên
-        public virtual void getInfo()
+        public void getInfo()
         {
-            Console.Write($"\nMSSV: {MaSV}\nHo ten: {TenSV}\nGioi tinh: {GioiTinh}\nNgay sinh: {NgaySinh.ToShortDateString()}\nLop: {Lop}\nKhoa: {Khoa}\n");
+            Console.Write($"\nMSSV: {sv.MaSV}\nHo ten: {sv.TenSV}\nGioi tinh: {sv.GioiTinh}\nNgay sinh: {sv.NgaySinh.ToShortDateString()}\nLop: {sv.Lop}\nKhoa: {sv.Khoa}\n");
         }
         //Đăng ký môn học
         public virtual void dangKyMonHoc(List<MonHoc> list_MH)
         {
+
             string pick;
             view.showCurrentListMH(list_MH);
             Console.WriteLine();
@@ -116,7 +76,7 @@ namespace QuanLySinhVien
                 pick = Console.ReadLine();
                 if (pick == "Y" || pick == "y")
                 {
-                    MonHocDK.Add(item);
+                    sv.MHDK.Add(item);
                 }
             }
             showMonHocDaDK();
@@ -126,14 +86,14 @@ namespace QuanLySinhVien
         public virtual void showMonHocDaDK()
         {
             Console.Write("\n\t---Cac mon hoc da dang ky---\n");
-            Console.Write($"\nSo luong: {MonHocDK.Count}\n");
+            Console.Write($"\nSo luong: {sv.MHDK.Count}\n");
             view.DuongKe();
-            view.showCurrentListMH(MonHocDK);
+            view.showCurrentListMH(sv.MHDK);
         }
         //Tìm môn học trong danh sách đã đăng ký
         public virtual MonHoc searchMonHocDaDK(string name)
         {
-            foreach (var item in MonHocDK)
+            foreach (var item in sv.MHDK)
             {
                 if (string.Equals(item.tenMH, name) == true)
                 {
@@ -168,9 +128,9 @@ namespace QuanLySinhVien
             }
         }
         //Xuất thông tin sinh viên (theo hàng ngang)
-        public virtual void showData()
+        public void showData()
         {
-            Console.Write("\n{0,-11}\t{1,-18}\t{2,-3}\t{3}/{4}/{5}\t{6,-11}\t{7}", this.MaSV, this.TenSV, this.GioiTinh, this.NgaySinh.Day, this.NgaySinh.Month, this.NgaySinh.Year, this.Lop, this.Khoa);
+            Console.Write("\n{0,-11}\t{1,-18}\t{2,-3}\t{3}/{4}/{5}\t{6,-11}\t{7}", sv.MaSV, sv.TenSV, sv.GioiTinh, sv.NgaySinh.Day, sv.NgaySinh.Month, sv.NgaySinh.Year, sv.Lop, sv.Khoa);
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using QuanLySinhVien.ORM;
-
 namespace QuanLySinhVien
 {
     /// <summary>
@@ -68,6 +67,8 @@ namespace QuanLySinhVien
             try
             {
                 line = File.ReadAllLines($"../../../Files/{fname}.txt");
+
+
             }
             catch (IOException e)
             {
@@ -248,7 +249,7 @@ namespace QuanLySinhVien
             }
             for (int i = 0; i < list_SV.Count; i++)
             {
-                list_SV[i].showData();
+                list_SV[i].Service.showData();
             }
         }
         //Hiện danh sách tên sinh viên
@@ -257,7 +258,7 @@ namespace QuanLySinhVien
             Console.Write("\n-Danh sach ten SV hien co: ");
             foreach (var item in list_SV)
             {
-                Console.Write($"\n\t{item.getTenSV()}");
+                Console.Write($"\n\t{item.Service.getTenSV()}");
             }
         }
         //Module tìm tên sinh viên
@@ -265,7 +266,7 @@ namespace QuanLySinhVien
         {
             foreach (var item in list_SV)
             {
-                if (string.Equals(item.getTenSV(), name) == true)
+                if (string.Equals(item.Service.getTenSV(), name) == true)
                 {
                     return item;
                 }
@@ -290,7 +291,7 @@ namespace QuanLySinhVien
                 goto retype;
             }
             Console.Write("\n\t-=Thong tin cua sinh vien=-");
-            x.getInfo();
+            x.Service.getInfo();
             Console.Write("\nBan co muon tim tiep (Y/N): ");
             flag = Console.ReadLine();
             if (flag == "Y" || flag == "y")
@@ -317,7 +318,7 @@ namespace QuanLySinhVien
                 goto retype;
             }
             Console.Write("\n\t-=Thong tin cac mon hoc cua sinh vien=-");
-            x.showMonHocDaDK();
+            x.Service.showMonHocDaDK();
             Console.Write("\nBan co muon tim tiep (Y/N): ");
             flag = Console.ReadLine();
             if (flag == "Y" || flag == "y")
@@ -332,7 +333,7 @@ namespace QuanLySinhVien
             Console.Write("\n\t\t\t-=Danh sach diem cua SV=-");
             for (int i = 0; i < list_SV.Count; i++)
             {
-                Console.Write($"\n\n\t\t\t   -Sinh vien: {list_SV[i].getTenSV()}-\n\n");
+                Console.Write($"\n\n\t\t\t   -Sinh vien: {list_SV[i].Service.getTenSV()}-\n\n");
                 view.Khuon_MH_Full();
                 for (int j = 0; j < list_SV[i].MHDK.Count; j++)
                 {
@@ -362,7 +363,7 @@ namespace QuanLySinhVien
                 Console.Write("\nVui long nhap lai!");
                 goto retype;
             }
-            x.inputScore();
+            x.Service.inputScore();
             Console.Write("\nBan co muon nhap diem cho sinh vien khac (Y/N): ");
             flag = Console.ReadLine();
             if (flag == "Y" || flag == "y")
@@ -388,7 +389,7 @@ namespace QuanLySinhVien
                 goto retype;
             }
 
-            Console.Write($"\n\n\t\t\t   -Sinh vien: {x.getTenSV()}-\n\n");
+            Console.Write($"\n\n\t\t\t   -Sinh vien: {x.Service.getTenSV()}-\n\n");
             view.Khuon_MH_Full();
             for (int i = 0; i < x.MHDK.Count; i++)
             {
@@ -410,6 +411,12 @@ namespace QuanLySinhVien
             return;
         }
         
+        public void Test()
+        {
+            
+            SinhVien sv = new SinhVien("0000", "SOS", "nam", DateTime.Now, "0000", "0000");
+            sv.Service.getInfo();
+        }
     }
     /// <summary>
     /// Class phụ 

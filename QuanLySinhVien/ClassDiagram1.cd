@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QuanLySinhVien.MonHoc" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIAAAAAAEAAIAIAAABAQAABAAAAAAAAQQAAAAADA=</HashCode>
+      <FileName>MonHoc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="QuanLySinhVien.SQLDataBase" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAQAQAAEAIAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>DataBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="QuanLySinhVien.XMLDataBase" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAIAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="QuanLySinhVien.SinhVien" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEEABAAAAAAAAAAAAAAAAAAAQgARAEAAAAAAAAAIAI=</HashCode>
+      <FileName>SV\SinhVien.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLySinhVien.ORM.DB_Dapper" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>ORM\DB_Dapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="QuanLySinhVien.ORM.DKHP" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAACAAAAAAAAAAAAAIFAAAAAAEAAAAAAACBAAAA=</HashCode>
+      <FileName>ORM\DB_Dapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLySinhVien.ORM.DB_NHibernate" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAIAIA=</HashCode>
+      <FileName>ORM\DB_NHibernate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="QuanLySinhVien.IDataBase" Collapsed="true">
+    <Position X="9" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAIAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QuanLySinhVien.ORM.IORM">
+    <Position X="4.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ORM\IORM.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

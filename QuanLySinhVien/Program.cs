@@ -3,6 +3,8 @@ using System.Text.Json;
 using System.Drawing;
 using Castle.Windsor;
 using System.IO;
+using System.Text;
+using System.Reflection;
 
 namespace QuanLySinhVien
 {
@@ -35,6 +37,17 @@ namespace QuanLySinhVien
             int chon = 0;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Graphic gp = new Graphic();
+            string relative = @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien";
+            Console.WriteLine(Path.GetRelativePath(relative, @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien\Files\dssv.txt"));
+            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            StreamWriter wr = new StreamWriter(deskDir + "//test2.txt", true, Encoding.Unicode);
+            string path = System.IO.Path.GetDirectoryName(
+                      Environment.SpecialFolder.Programs.ToString());
+
+            string folderName = AppDomain.CurrentDomain.BaseDirectory;
+
+            string file = System.IO.Path.Combine(path, $@"..\..\..\Files\dssv.txt");
+            Console.WriteLine(wr.GetHashCode());
             do
             {
                 Console.ResetColor();
@@ -77,14 +90,13 @@ namespace QuanLySinhVien
                         dssv.CheckPassedMH();
                         break;
                     case 8:
-                        SinhVien a = new SinhVien("1231", "VDSD", "nam", DateTime.Today, "hdhdhd", "IT");
                         string jsonString = JsonSerializer.Serialize(dssv.list_SV);
                         
-                        string[] arr = jsonString.Split("]}");
-                        foreach (var item in arr)
-                        {
-                            Console.WriteLine("\n\n" + item);
-                        }
+                        //string[] arr = jsonString.Split("]}");
+                        //foreach (var item in arr)
+                        //{
+                        //    Console.WriteLine("\n\n" + item);
+                        //}
                         string fname = "../../../JSONs/Test01.json";
                         File.WriteAllText(fname, jsonString);
                         break;

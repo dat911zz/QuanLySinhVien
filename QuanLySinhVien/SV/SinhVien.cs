@@ -37,7 +37,7 @@ namespace QuanLySinhVien
         public virtual string Lop { get; set; }
         public virtual string Khoa { get; set; }
 
-        protected List<MonHoc> MonHocDK = new List<MonHoc>();
+        protected List<MonHoc> MonHocDK = new List<MonHoc>(5);
 
         public SinhVienService Service { get; set; }
         //==================================================================

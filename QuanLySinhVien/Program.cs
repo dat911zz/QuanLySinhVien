@@ -37,17 +37,7 @@ namespace QuanLySinhVien
             int chon = 0;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Graphic gp = new Graphic();
-            string relative = @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien";
-            Console.WriteLine(Path.GetRelativePath(relative, @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien\Files\dssv.txt"));
-            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            StreamWriter wr = new StreamWriter(deskDir + "//test2.txt", true, Encoding.Unicode);
-            string path = System.IO.Path.GetDirectoryName(
-                      Environment.SpecialFolder.Programs.ToString());
-
-            string folderName = AppDomain.CurrentDomain.BaseDirectory;
-
-            string file = System.IO.Path.Combine(path, $@"..\..\..\Files\dssv.txt");
-            Console.WriteLine(wr.GetHashCode());
+            
             do
             {
                 Console.ResetColor();
@@ -144,6 +134,21 @@ namespace QuanLySinhVien
             Console.SetCursorPosition(42, y++);
 
             Console.Write("Chọn: ");
+        }
+
+        static void test()
+        {
+            string relative = @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien";
+            Console.WriteLine(Path.GetRelativePath(relative, @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien\Files\dssv.txt"));
+            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            StreamWriter wr = new StreamWriter(deskDir + "//test2.txt", true, Encoding.Unicode);
+            string path = System.IO.Path.GetDirectoryName(
+                      Environment.SpecialFolder.Programs.ToString());
+
+            string folderName = AppDomain.CurrentDomain.BaseDirectory;
+
+            string file = System.IO.Path.Combine(path, $@"..\..\..\Files\dssv.txt");
+            Console.WriteLine(wr.GetHashCode());
         }
     }
     

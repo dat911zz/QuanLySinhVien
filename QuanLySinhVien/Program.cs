@@ -140,13 +140,13 @@ namespace QuanLySinhVien
         {
             string relative = @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien";
             Console.WriteLine(Path.GetRelativePath(relative, @"C:\Users\Asus\source\repos\QuanLySinhVien\QuanLySinhVien\Files\dssv.txt"));
-            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             StreamWriter wr = new StreamWriter(deskDir + "//test2.txt", true, Encoding.Unicode);
             string path = System.IO.Path.GetDirectoryName(
                       Environment.SpecialFolder.Programs.ToString());
 
             string folderName = AppDomain.CurrentDomain.BaseDirectory;
-
+            
             string file = System.IO.Path.Combine(path, $@"..\..\..\Files\dssv.txt");
             Console.WriteLine(wr.GetHashCode());
         }

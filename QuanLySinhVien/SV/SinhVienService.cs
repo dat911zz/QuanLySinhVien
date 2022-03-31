@@ -54,6 +54,12 @@ namespace QuanLySinhVien.SV
         public string getTenSV()
         {
             return sv.TenSV;
+            int n;
+            string s;
+            List<int> ds = new List<int>();
+            ds.Reverse();
+            ds.BinarySearch(2);
+            int[,] mt = new int[2, 2];
         }
         //Xuất thông tin sinh viên
         public void getInfo()

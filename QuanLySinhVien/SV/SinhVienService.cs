@@ -12,6 +12,7 @@ namespace QuanLySinhVien.SV
         public SinhVienService(SinhVien sv)
         {
             this.sv = sv;
+            this.view = new Viewer();
         }
 
         /// <summary>

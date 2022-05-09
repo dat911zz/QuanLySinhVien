@@ -69,23 +69,5 @@ namespace QuanLySinhVien.ORM
             }
         }
     }
-    public class DKHP
-    {
-        //Props
-        public virtual int C1 { get; set; }
-        public virtual int C2 { get; set; }
-        public virtual int C3 { get; set; }
-        public virtual int C4 { get; set; }
-        public virtual int C5 { get; set; }
-        public virtual int C6 { get; set; }
-        public virtual int C7 { get; set; }
-        public virtual int C8 { get; set; }
-        public virtual int C9 { get; set; }
-        public virtual int C10 { get; set; }
-        //Method
-        public int[] ToArray()
-        {
-            return new int[]{ C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 };
-        }
-    }
+    
 }

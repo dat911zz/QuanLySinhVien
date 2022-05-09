@@ -39,7 +39,7 @@ namespace QuanLySinhVien
 
         protected List<MonHoc> MonHocDK = new List<MonHoc>(5);
 
-        public SinhVienService Service { get; set; }
+        public virtual SinhVienService Service { get; set; }
         //==================================================================
         //Method
         public virtual List<MonHoc> MHDK
@@ -64,4 +64,5 @@ namespace QuanLySinhVien
             Khoa = khoa;
         }
     }
+   
 }

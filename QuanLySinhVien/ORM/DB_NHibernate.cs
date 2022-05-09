@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data.Common;
-
+using System.IO;
 
 namespace QuanLySinhVien.ORM
 {
@@ -125,7 +125,10 @@ namespace QuanLySinhVien.ORM
         {
             NHibernateProfiler.Initialize();
             var cfg = new Configuration();
-            cfg.Configure($"../../../ORM/hibernate.cfg.xml");
+            string projectDirectory = Directory.GetParent("../").Parent.Parent.FullName;
+            string NHibernatePath = @"\ORM\";
+            string path = projectDirectory + NHibernatePath + "hibernate.cfg.xml";
+            cfg.Configure(path);
             return cfg.BuildSessionFactory();
         }
 

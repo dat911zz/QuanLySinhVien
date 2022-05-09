@@ -1,28 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
    assembly = "QuanLySinhVien" namespace = "QuanLySinhVien">
-   <class name = "SinhVien"> 
-      <id name = "MaSV"></id> 		
-      <property name = "TenSV"/> 
-      <property name = "GioiTinh"/> 
-      <property name = "NgaySinh"/> 
-      <property name = "Lop"/> 
-      <property name = "Khoa"/>   
-   </class>
+	<class name = "SinhVien">
+		<id name = "MaSV"></id>
+		<property name = "TenSV"/>
+		<property name = "GioiTinh"/>
+		<property name = "NgaySinh"/>
+		<property name = "Lop"/>
+		<property name = "Khoa"/>
+	</class>
 	<class name = "MonHoc">
 		<id name = "tenMH"></id>
 		<property name = "soTiet"/>
 	</class>
 	<class name ="DKHP">
-		<property name = "C1"/>
-		<property name = "C2"/>
-		<property name = "C3"/>
-		<property name = "C4"/>
-		<property name = "C5"/>
-		<property name = "C6"/>
-		<property name = "C7"/>
-		<property name = "C8"/>
-		<property name = "C9"/>
-		<property name = "C10"/>
+		<id name ="STT"></id>
+		<property name = "MaSV"/>
+		<property name = "MH1"/>
+		<property name = "MH2"/>
+		<property name = "MH3"/>
+		<property name = "MH4"/>
+		<property name = "MH5"/>
+		<property name = "MH6"/>
+		<property name = "MH7"/>
 	</class>
 </hibernate-mapping>
